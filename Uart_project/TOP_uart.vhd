@@ -48,6 +48,8 @@ signal r_butt : std_logic;
 signal r_final : std_logic;
 signal r_byte : std_logic_vector(9 downto 0);
 
+signal not_used : std_logic;
+
 begin
 
 
