@@ -41,7 +41,7 @@ end process;
 s_en <= s_start;
 
 
----contatore tipo latch
+--counter
 process (s_en) begin
 
     if (rising_edge(s_en)) then
