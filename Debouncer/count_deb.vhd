@@ -5,14 +5,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
 
 
-entity contatori_vari is
+entity count_deb is
     Port ( i_clk : in STD_LOGIC;
             i_en : in STD_LOGIC;
           
            o_res : out STD_LOGIC_VECTOR(3 downto 0));
-end contatori_vari;
+end count_deb;
 
-architecture Behavioral of contatori_vari is
+architecture Behavioral of count_deb is
 
 signal s_count : std_logic_vector (3 downto 0) := (others=>'0');
 signal s_count_deb : integer;
