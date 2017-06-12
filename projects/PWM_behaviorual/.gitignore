@@ -1,9 +1,9 @@
 
-
-########## rename in .gitignore
+########## rename in .gitignore in the home-project folder
 
 
 ################# directories
+*.sim
 *.cache
 *.hw
 .Xil/
@@ -22,7 +22,5 @@
 !*.runs/impl_1
 *.runs/impl_1/*
 !*.runs/impl_1/*.bit
-
-
 
 
