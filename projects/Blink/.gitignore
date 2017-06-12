@@ -9,4 +9,4 @@
 *.jou
 *.log
 *.str
-./Blink.runs/impl_1/!(*.bit)
+./Blink.runs/!(*.bit)
