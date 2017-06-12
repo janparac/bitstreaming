@@ -2,7 +2,7 @@
 -- Blink: simple VHDL LED-blinking code
 
 
-entity Blink is :
+entity Blink is
 
    port (
    
@@ -15,7 +15,7 @@ entity Blink is :
 end entity Blink ;
 
 
-architecture RTL of Blink is :
+architecture RTL of Blink is
 
 begin
 
