@@ -3,11 +3,9 @@
 
 
 ################# directories
-*.sim
 *.cache
 *.hw
 .Xil/
-*.ip_user_files
 
 
 ################# files
