@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TOP_uart_TX_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TOP_uart_TX" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="49736250000fs"></ZoomStartTime>
+      <ZoomEndTime time="50058750001fs"></ZoomEndTime>
+      <Cursor1Time time="50005000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="121"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="4" />
+   <wvobject type="logic" fp_name="/TOP_uart_TX/butt">
+      <obj_property name="ElementShortName">butt</obj_property>
+      <obj_property name="ObjectShortName">butt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TOP_uart_TX/sign">
+      <obj_property name="ElementShortName">sign</obj_property>
+      <obj_property name="ObjectShortName">sign</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TOP_uart_TX/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/TOP_uart_TX/worderUART/r_count_final">
+      <obj_property name="ElementShortName">r_count_final</obj_property>
+      <obj_property name="ObjectShortName">r_count_final</obj_property>
+   </wvobject>
+</wave_config>

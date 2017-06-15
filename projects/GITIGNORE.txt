@@ -6,7 +6,10 @@
 *.cache
 *.hw
 .Xil/
-
+bd
+*.sim
+*.ip_user_files
+*.dir
 
 ################# files
 *.jou
