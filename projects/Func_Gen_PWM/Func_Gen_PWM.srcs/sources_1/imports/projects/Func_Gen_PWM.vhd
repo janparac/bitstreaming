@@ -10,91 +10,58 @@ use ieee.numeric_std.all;--for type conversion
 entity Func_Gen_PWM is
 
  Port (    i_clk : in STD_LOGIC;
-           o_led : out STD_LOGIC_VECTOR(3 downto 0));
+          -- i_res : in STD_LOGIC;
+           i_btn : in STD_LOGIC_VECTOR (3 downto 0 );
+           o_test : out STD_LOGIC;     
+           o_sig : out STD_LOGIC);
 
 end Func_Gen_PWM;
 
 architecture Behavioral of Func_Gen_PWM is
 
-component PWM_gen is
+component Sine_Gen is
 
+ generic ( g_res :  integer := 100 --must be equal to g_max of the PWM_gen because this is the number of different value of the ROM
+            );
 
-generic(
-		g_max: integer ;
-		g_dutybit: integer 
-	);
-	port(
-		i_clk: in std_logic;
-		i_duty: in std_logic_vector((g_dutybit -1) downto 0); --the input must be a bus (even if the duty is commonly expressed as % value )
-		o_pulse: out std_logic
-	);
-
+ Port (    i_clk : in STD_LOGIC;
+           i_T : in std_logic_vector(31 downto 0);
+           i_res : in STD_LOGIC;     
+           o_sig : out STD_LOGIC);
 
 end component;
 
-------signals declatarion-----------------------------------------
-------------------------------------------------------------------
-signal s_counter : std_logic_vector(31 downto 0):= (others=>'0');
-
-signal s_q : std_logic;
-
-signal s_pilot, s_fun : std_logic_vector (15 downto 0):= (others=>'0');
-
-type romtype is array (0 to 1000) of std_logic_vector (15 downto 0);
-signal s_myrom: romtype;
-----------------------------------------------------------------------
-------------------------------------------------------------------------
+signal s_T : std_logic_vector(31 downto 0);
+signal s_res : STD_LOGIC;
 
 begin
 
 process (i_clk) begin
+   if rising_edge(i_clk) then
+      case i_btn is
+        when "0001" => s_T <=std_logic_vector(to_unsigned(49999,32));
+                       s_res <= '0';
+        when "0010" => s_T <=std_logic_vector(to_unsigned(4999,32));
+                       s_res <= '0';
+        when "0100" => s_T <=std_logic_vector(to_unsigned(499,32));
+                                              s_res <= '0';         
+        when others => s_T <=std_logic_vector(to_unsigned(49999,32));
+                        s_res <= '1';
+      end case;
 
-if rising_edge(i_clk) then
-
-    if s_counter<399999 then --changing analog value rate (staircase settings)
-        s_counter<= s_counter +1;
-    elsif s_counter>= 399999 then --trigger 
-        s_counter <= (others=>'0'); 
-        if (s_pilot < 1000) then 
-            s_pilot<=s_pilot+1;
-        else  s_q<='0'; --direction value change
-        end if;
-        if (s_pilot>1 and s_q='0') then
-        s_pilot<=s_pilot-1;
-        elsif (s_pilot=1 and s_q='0') then
-         s_q<='1';
-        end if;
-    end if;
-  
-end if;
-
+   end if;
 end process;
 
+sine1 : Sine_Gen generic map (g_res=>100) port map (i_clk=>i_clk,  i_T=>s_T,  i_res=>s_res,  o_sig=>o_sig);
 
-
-
-genrom : for i in 1000 downto 0 generate
-
---constant x : std_logic_vector(15 downto 0) :=std_logic_vector(to_unsigned(i,16));
-constant x: real := cos(real(i)*MATH_PI / (real(1000) ) );
-
-constant xn: std_logic_vector (15 downto 0):= std_logic_vector(to_unsigned(integer(x*real(500)+real(500)),16));
-begin
-s_myrom(i)<= xn;
-end generate genrom;
-
-s_fun<=s_myrom(to_integer(signed(s_pilot)));
-
-led0 : PWM_gen GENERIC MAP (g_max=>1000, g_dutybit=>16) PORT MAP (i_clk=>i_clk,i_duty=>s_fun,o_pulse=>o_led(0));
---led1 : pwm GENERIC MAP (max_val=>1000, dutybit=>10) PORT MAP (clk=>clk,val_cur=>std_logic_vector(pilot),pulse=>led(1));
---led2 : pwm GENERIC MAP (max_val=>10000000, dutybit=>32) PORT MAP (clk=>clk,val_cur=>std_logic_vector(to_unsigned(9000000,32)),pulse=>led(2));
---led3 : pwm GENERIC MAP (max_val=>10000000, dutybit=>32) PORT MAP (clk=>clk,val_cur=>std_logic_vector(to_unsigned(1000000,32)),pulse=>led(3));
-
---mygen : for i in 3 downto 0 generate
-
---singleled : pwm GENERIC MAP (max_val=>1000*i, dutybit=>16) PORT MAP (clk=>clk,duty=>pilot,pulse=>led(i));
-
---end generate mygen;
-
+o_test<= i_clk;
 
 end Behavioral;
+
+
+--case INT_A is
+--  when 0      =>  Z <= A;
+--  when 1 to 3 =>  Z <= B;
+--  when 4|6|8  =>  Z <= C;
+--  when others =>  Z <= 'X';
+--end case;

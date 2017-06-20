@@ -6,7 +6,10 @@ use ieee.std_logic_unsigned.all;
 
 entity PWM_gen is
 generic(
-		g_max: integer ;-- period of the square wave : max value of system clk summation
+		g_max: integer ;-- period of the square wave = [g_max*10 ns] (not to be confused with the Sine period!) : max value of system clk summation
+		                --it also means the NUMBER OP POSSIBLE DIFFERENT ANALOG VALUES THAT CAN BE PRODUCED
+		                -- (indeed the number of different duty values acceptable)
+		                --TRADEOFF between the resolution and the max freq of the Sin reachable ( Tsin= 2*g_res*L*10ns and L>1)             
 		g_dutybit: integer -- length of the duty bus input (it must be able to contain the g_max ! )
 	);
 	port(

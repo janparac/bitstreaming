@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Func_Gen_PWM_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Func_Gen_PWM" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="29960120000000fs"></ZoomStartTime>
+      <ZoomEndTime time="30058520000001fs"></ZoomEndTime>
+      <Cursor1Time time="30012020000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="166"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wave_markers>
+      <marker label="" time="28880970000000" />
+      <marker label="" time="28845020000000" />
+      <marker label="" time="29531000000000" />
+      <marker label="" time="30012790000000" />
+   </wave_markers>
+   <wvobject type="logic" fp_name="/Func_Gen_PWM/i_clk">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Func_Gen_PWM/i_res">
+      <obj_property name="ElementShortName">i_res</obj_property>
+      <obj_property name="ObjectShortName">i_res</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Func_Gen_PWM/o_sig">
+      <obj_property name="ElementShortName">o_sig</obj_property>
+      <obj_property name="ObjectShortName">o_sig</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Func_Gen_PWM/s_counter">
+      <obj_property name="ElementShortName">s_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_counter[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/Func_Gen_PWM/s_q">
+      <obj_property name="ElementShortName">s_q</obj_property>
+      <obj_property name="ObjectShortName">s_q</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Func_Gen_PWM/s_pilot">
+      <obj_property name="ElementShortName">s_pilot[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_pilot[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Func_Gen_PWM/s_fun">
+      <obj_property name="ElementShortName">s_fun[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_fun[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom">
+      <obj_property name="ElementShortName">s_myrom[0:100][15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_myrom[0:100][15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[0]">
+         <obj_property name="ElementShortName">[0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[1]">
+         <obj_property name="ElementShortName">[1][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[2]">
+         <obj_property name="ElementShortName">[2][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[3]">
+         <obj_property name="ElementShortName">[3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[4]">
+         <obj_property name="ElementShortName">[4][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[5]">
+         <obj_property name="ElementShortName">[5][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[6]">
+         <obj_property name="ElementShortName">[6][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[7]">
+         <obj_property name="ElementShortName">[7][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[8]">
+         <obj_property name="ElementShortName">[8][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[9]">
+         <obj_property name="ElementShortName">[9][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[10]">
+         <obj_property name="ElementShortName">[10][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[11]">
+         <obj_property name="ElementShortName">[11][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[12]">
+         <obj_property name="ElementShortName">[12][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[13]">
+         <obj_property name="ElementShortName">[13][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[14]">
+         <obj_property name="ElementShortName">[14][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[15]">
+         <obj_property name="ElementShortName">[15][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[16]">
+         <obj_property name="ElementShortName">[16][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[17]">
+         <obj_property name="ElementShortName">[17][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[18]">
+         <obj_property name="ElementShortName">[18][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[19]">
+         <obj_property name="ElementShortName">[19][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[20]">
+         <obj_property name="ElementShortName">[20][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[21]">
+         <obj_property name="ElementShortName">[21][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[22]">
+         <obj_property name="ElementShortName">[22][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[23]">
+         <obj_property name="ElementShortName">[23][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[24]">
+         <obj_property name="ElementShortName">[24][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[25]">
+         <obj_property name="ElementShortName">[25][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[26]">
+         <obj_property name="ElementShortName">[26][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[27]">
+         <obj_property name="ElementShortName">[27][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[28]">
+         <obj_property name="ElementShortName">[28][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[29]">
+         <obj_property name="ElementShortName">[29][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[30]">
+         <obj_property name="ElementShortName">[30][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[31]">
+         <obj_property name="ElementShortName">[31][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[32]">
+         <obj_property name="ElementShortName">[32][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[32][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[33]">
+         <obj_property name="ElementShortName">[33][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[33][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[34]">
+         <obj_property name="ElementShortName">[34][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[34][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[35]">
+         <obj_property name="ElementShortName">[35][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[35][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[36]">
+         <obj_property name="ElementShortName">[36][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[36][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[37]">
+         <obj_property name="ElementShortName">[37][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[37][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[38]">
+         <obj_property name="ElementShortName">[38][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[38][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[39]">
+         <obj_property name="ElementShortName">[39][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[39][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[40]">
+         <obj_property name="ElementShortName">[40][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[40][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[41]">
+         <obj_property name="ElementShortName">[41][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[41][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[42]">
+         <obj_property name="ElementShortName">[42][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[42][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[43]">
+         <obj_property name="ElementShortName">[43][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[43][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[44]">
+         <obj_property name="ElementShortName">[44][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[44][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[45]">
+         <obj_property name="ElementShortName">[45][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[45][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[46]">
+         <obj_property name="ElementShortName">[46][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[46][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[47]">
+         <obj_property name="ElementShortName">[47][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[47][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[48]">
+         <obj_property name="ElementShortName">[48][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[48][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[49]">
+         <obj_property name="ElementShortName">[49][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[49][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[50]">
+         <obj_property name="ElementShortName">[50][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[50][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[51]">
+         <obj_property name="ElementShortName">[51][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[51][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[52]">
+         <obj_property name="ElementShortName">[52][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[52][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[53]">
+         <obj_property name="ElementShortName">[53][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[53][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[54]">
+         <obj_property name="ElementShortName">[54][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[54][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[55]">
+         <obj_property name="ElementShortName">[55][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[55][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[56]">
+         <obj_property name="ElementShortName">[56][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[56][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[57]">
+         <obj_property name="ElementShortName">[57][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[57][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[58]">
+         <obj_property name="ElementShortName">[58][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[58][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[59]">
+         <obj_property name="ElementShortName">[59][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[59][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[60]">
+         <obj_property name="ElementShortName">[60][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[60][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[61]">
+         <obj_property name="ElementShortName">[61][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[61][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[62]">
+         <obj_property name="ElementShortName">[62][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[62][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[63]">
+         <obj_property name="ElementShortName">[63][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[63][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[64]">
+         <obj_property name="ElementShortName">[64][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[64][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[65]">
+         <obj_property name="ElementShortName">[65][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[65][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[66]">
+         <obj_property name="ElementShortName">[66][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[66][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[67]">
+         <obj_property name="ElementShortName">[67][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[67][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[68]">
+         <obj_property name="ElementShortName">[68][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[68][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[69]">
+         <obj_property name="ElementShortName">[69][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[69][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[70]">
+         <obj_property name="ElementShortName">[70][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[70][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[71]">
+         <obj_property name="ElementShortName">[71][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[71][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[72]">
+         <obj_property name="ElementShortName">[72][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[72][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[73]">
+         <obj_property name="ElementShortName">[73][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[73][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[74]">
+         <obj_property name="ElementShortName">[74][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[74][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[75]">
+         <obj_property name="ElementShortName">[75][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[75][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[76]">
+         <obj_property name="ElementShortName">[76][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[76][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[77]">
+         <obj_property name="ElementShortName">[77][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[77][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[78]">
+         <obj_property name="ElementShortName">[78][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[78][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[79]">
+         <obj_property name="ElementShortName">[79][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[79][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[80]">
+         <obj_property name="ElementShortName">[80][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[80][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[81]">
+         <obj_property name="ElementShortName">[81][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[81][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[82]">
+         <obj_property name="ElementShortName">[82][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[82][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[83]">
+         <obj_property name="ElementShortName">[83][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[83][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[84]">
+         <obj_property name="ElementShortName">[84][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[84][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[85]">
+         <obj_property name="ElementShortName">[85][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[85][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[86]">
+         <obj_property name="ElementShortName">[86][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[86][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[87]">
+         <obj_property name="ElementShortName">[87][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[87][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[88]">
+         <obj_property name="ElementShortName">[88][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[88][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[89]">
+         <obj_property name="ElementShortName">[89][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[89][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[90]">
+         <obj_property name="ElementShortName">[90][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[90][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[91]">
+         <obj_property name="ElementShortName">[91][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[91][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[92]">
+         <obj_property name="ElementShortName">[92][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[92][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[93]">
+         <obj_property name="ElementShortName">[93][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[93][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[94]">
+         <obj_property name="ElementShortName">[94][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[94][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[95]">
+         <obj_property name="ElementShortName">[95][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[95][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[96]">
+         <obj_property name="ElementShortName">[96][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[96][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[97]">
+         <obj_property name="ElementShortName">[97][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[97][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[98]">
+         <obj_property name="ElementShortName">[98][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[98][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[99]">
+         <obj_property name="ElementShortName">[99][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[99][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/Func_Gen_PWM/s_myrom[100]">
+         <obj_property name="ElementShortName">[100][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[100][15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="other" fp_name="/Func_Gen_PWM/g_res">
+      <obj_property name="ElementShortName">g_res</obj_property>
+      <obj_property name="ObjectShortName">g_res</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/Func_Gen_PWM/i_T">
+      <obj_property name="ElementShortName">i_T[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_T[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
