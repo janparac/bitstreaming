@@ -1,0 +1,651 @@
+\documentclass[12pt,a4paper,openright,twoside]{article}
+
+\usepackage[italian]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8x]{inputenc}
+%\usepackage[applemac]{inputenc}
+
+\usepackage[]{hyperref} %collegamenti ipertestuali + url internet
+\usepackage{url}
+\usepackage{xcolor} 
+\hypersetup{ %personalizzazione collegamenti ipertestuali
+    colorlinks = false,
+    linkbordercolor = {yellow},
+}
+
+\usepackage[centertags]{amsmath}
+\numberwithin{equation}{section} %numerare le formula fino alla sezione (scrivere SUBSECTION per arrivare alla sottosezione)
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{enumitem}%per gli elenchi numerati romani
+\usepackage{multirow}%per tabelle con righe unite
+\usepackage{colortbl}
+\usepackage[version=2]{mhchem} %nuclidi
+\usepackage{footnote} %per fare note in tabella
+\makesavenoteenv{table} %per fare note in tabella
+\usepackage[T1]{fontenc} % mette le due virgolette uguali e dritte (forse)
+
+
+\usepackage[pdftex]{graphicx}%per le immagini
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{newlfont}
+\usepackage[small,bf]{caption}
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{units}%per il segno di frazione figo
+
+%\usepackage{subfigure}%matrici di immagini IN CONFLITTO CON SUBCAPTION
+\usepackage{subcaption}
+
+\usepackage{wrapfig}%per le immaggine nel a lato testo
+\usepackage[percent]{overpic}%per mettere il testo davanti alle figure
+
+%PAGE formatting
+\setlength{\hoffset}{-25,4mm}
+\setlength{\captionmargin}{10pt}
+\evensidemargin=17mm
+\oddsidemargin=17mm
+\linespread{1}
+\textwidth=175mm
+\textheight=230mm
+
+\hyphenation{}
+
+
+\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\fancyhf{}
+\fancypagestyle{plain}{\fancyhead{}}
+\fancyhead[LE, RO] {\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addto\captionsitalian{\renewcommand{\chaptername}{}}
+
+
+\title{\textbf{Misura della vita media del Muone a riposo}}
+\date{\small{ Turno di misura\\
+	27/2/2017 $\div $ 3/3/2017 }}
+\author{Gruppo 3: \\  
+		Stefano Paracchino 
+		}
+
+
+
+\begin{document}
+\maketitle
+    
+
+%--------------------INDICE---------------------------------------------------------------------
+\tableofcontents                        %crea l'indice
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%non numera l'ultima pagina sinistra
+\pagenumbering{arabic}
+%--------------------------------------------------------------------------------------------------------
+\pagebreak
+
+\section{Cenni teorici}
+Di seguito vengono riassunte le nozioni teoriche fondamentali per lo svolgimento dell'esperienza.
+\subsection{Muone e raggi cosmici} \label{intro}
+
+Il muone $\mu^-$ è un leptone instabile di massa $m_{\mu}=105.658369(9) \frac{MeV}{c^2} \approx 200 \cdot m_e$, carica $-e$, spin $s=\frac{1}{2}$. Decade $\mu^- \rightarrow e^- + \nu_{\mu} + \bar{\nu_{e}}$ con densità di probabilità:
+
+\begin{equation} \label{mainformula}
+P_{dec}(t)=\frac{1}{\tau}e^{-\frac{t}{\tau}} \qquad \boxed{\tau=2.19703 \pm 0.00004 \; [\mu s]}
+\end{equation}
+
+dove $\tau$ è il \textit{tempo vi vita media} del muone a riposo.
+Nella presente esperienza, i muoni non sono prodotti artificialmente (nei collider) bensì dalla fonte naturale dei raggi cosmici. L'interazione delle particelle provenienti dallo spazio con i nuclei delle molecole dell'atmosfera genera raggi cosmici \textit{secondari} ($\Pi$,$K$) che a loro volta decadano generando, fra gli altri prodotti, muoni $\mu^-$ e antimuoni $\mu^+$ ad una quota $h \approx 15 Km$
+ \footnote{questo dato, unito con il valore $\tau$, portò alla prima prova sperimentale della Relatività Speciale: se il $\mu$ decadesse nel S.R. della terra nel tempo $\tau$ percorrerebbe appena $600m$. Invece il tempo nel S.R. "in moto" (terra) è $\tau_t = \gamma \tau $ a cui corrisponde approssimativamente una lunghezza percorsa $>15Km$ per $\gamma > 22 $ ovvero $E_{\mu}>2 GeV$.
+Se si considera inoltre che il $\mu$ perde circa $2 GeV$ per ionizzazione in atmosfera (\textit{spessore di massa} dell'atmosfera $\approx 1000 \frac{g}{cm^2}$) allora i muoni che arrivano sulla superficie terrestre dovranno avere energia all'origine di almeno $4 GeV$. }.
+Si ricava che la sorgente di muoni cosmici ha le seguenti caratteristiche:
+\begin{equation}
+\begin{gathered}\label{cosmici}
+  \text{Energia @ l.d.m : } \qquad E_{\mu} = 0 \div \; 4GeV \qquad \text{probabilità} \approx \text{uniforme} \\ 
+ \text{Flusso @ l.d.m. : } \qquad I_0 \approx 100 \; \left[ \frac{1}{m^2 s \; sr} \right] \quad \text{con distribuzione} \quad \frac{dN}{d\Omega dA dt} \approx I_0 cos^2 \theta 
+\end{gathered}
+\end{equation}
+
+Per quanto riguarda il decadimento si è interessati a sapere l'energia dell'elettrone prodotto.
+Dall'elettrodinamica quantistica si ricava che essa ha una distribuzione di probabilità centrata sul valore massimo ottenibile dalle leggi di conservazione, quindi semplificando:
+
+\begin{equation} \label{endecmu}
+E_{e^-} \approx \frac{m_{\mu} c^2}{2} \approx 50 \; MeV
+\end{equation}
+
+
+\subsection{Strumentazione} \label{strum}
+
+\begin{enumerate}
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.1]{immagini/blocchi.png}
+\caption{Rivelatori}
+\label{riv}
+\end{figure}
+
+
+\item \underline{Rivelatori}\label{riv} in riferimento a Fig.(\ref{riv}) si dispone del rivelatore principale (\textbf{B}) che è un \textit{blocco} di vetro Scintillante SCG1 (Ossido di Bario,$\rho = 3.3 \left[ \frac{g}{cm^3} \right]$ EL : $ \approx 5 \frac{ph}{keV}$, area 15x60 cm altezza 15 cm), due rivelatori ausiliari (\textbf{A1, A2}) in materiale scintillante plastico (EL  $\approx 20 \frac{ph}{keV}$, area rispettivamente 10x50 cm e 10 x 70 cm e  altezza 1 cm ) e un'altro scintillatore plastico (\textbf{T}) che funge da rivelatore di test (area 10x10 cm altezza < 1 cm ).
+Gli scintillatori organici sono adatti in casi che richiedono grandi volumi e aree di rivelazione (come nel presente caso) a prezzi contenuti. La bassa efficienza luminosa e la prevalenza dell'effetto Compton rispetto al fotoelettrico non rappresenta un problema nel caso di rivelazione di particelle cariche ad alta energia.
+Il vetro scintillante di \textbf{B} ha caratteristiche intermedie fra i suddetti rivelatori plastici e i rivelatori inorganici tipici della spettroscopia-$\gamma$.
+
+Lo scopo del blocco principale \textbf{B} non sarà solo quello di rivelare il passaggio di muoni bensì quello di \textit{fermarli}, dato che è necessario avere la particella a riposo nel S.R. del laboratorio.
+
+ L'energia persa dalla particella nell'attraversare il rivelatore segue la formula di Bethe-Bloch, che nel caso di \textit{particelle al minimo di ionizzazione (mip)} ovvero $E> 3 GeV $ si può semplificare a $\frac{dE}{dx} \approx 2 \left[ \frac{MeV \, cm^2}{g} \right]$ per tutti materiali.  Quindi per il \textit{blocco} si ha un potere frenante minimo:
+
+\begin{equation}\label{enmu}
+\text{per \textbf{m.i.p.}} \quad \Delta E = 2 \left[ \frac{MeV \, cm^2}{g} \right] \cdot 3.3 \left[ \frac{g}{cm^3} \right] \cdot 15 [cm] \approx 100  MeV
+\end{equation}
+
+da cui segue che una m.i.p. non viene fermata nel blocco.
+Verranno invece fermate tutte le particelle di energia inferiore a una certa energia $E_{stop}$. Per calcolare questo valore (e di conseguenza il numero medio di particelle fermate per unità di tempo usando le formule \ref{cosmici}) va integrata l'equazione differenziale $\frac{dE}{dx}$ per il materiale del blocco $B$ ma non si dispone di questo dato e d'altronde non è di interesse ai fini di questo esperimento.
+
+Tuttavia il numero di $\mu$ fermati verrà misurato sperimentalmente e corrisponderà al numero di START definito nel Par.(\ref{circpertau}).\footnote{nel Par.(\ref{circpertau}) verrà chiarito come al segnale elettronico di START non corrisponderà sempre l'evento di $\mu$ fermato}
+
+L'energia ceduta è quindi trasformata in fotoni del range visibile a cui il materiale stesso è trasparente e potranno quindi giungere tramite riflessioni interne e la guida di luce al PMT.
+Si assume inoltre che il segnale luminoso prodotto sia in proporzionalità diretta con l'energia rilasciata, ipotesi sicuramente attendibile negli stretti range di energia che saranno considerati nel presente esperimento.
+Il segnale generato segue la tipica forma esponenziale con tempi caratteristici molto rapidi (qualche $ns$). A differenza degli scintillatori inorganici, il tempo di salita sarà confrontabile con quello di discesa, facendo assomigliare il segnale a una gaussiana.
+
+
+\item \underline{PMT}: i fotoni prodotti dallo scintillatore sono convogliati tramite una guida di luce a coda di pesce al fotocatodo del tubo fotomoltiplicatore. Questo dispositivo trasforma il segnale luminoso in segnale elettrico (per descrizione del funzionamento si rimanda a \textit{Relazione taratura MCA}). Il \textit{blocco} ha un PMT di tipo "a veneziana" che è più lento (decine di $ns$) di quelli comuni e andrà considerato per la messa a punto delle coincidenze.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.13]{immagini/moduli.png}
+\caption{Crate con i moduli elettronici}
+\label{crate}
+\end{figure}
+
+\item \underline{Moduli elettronici} \label{moduli} Nel crate sono disponibili i moduli elettronici impiegati. Le varie regolazioni si effettuano girando una corrispondente vite e il valore impostato si visualizza su un tester che misura la tensione fra la massa e la boccolina bianca a lato della vite. Essi sono, riferendosi a Fig.(\ref{crate}):
+
+\begin{enumerate}
+\item[1)] \underline{Alimentatore}:1 modulo x 4 canali. Regola l'alta tensione $HV$ con cui alimentare i 4 PMT.
+\item[2)] \underline{Discriminatore}:2 moduli x 8 canali. Produce un segnale logico NIM (vero$=-0.8V$) di durata regolabile \textit{width} (decine di $ns$ )quando il segnale in ingresso supera (in modulo) la soglia regolabile detta \textit{threshold}. Il singolo canale ha un'ingresso $IN$, 2 uscite $OUT$ e 1 uscita negata $\overline{OUT}$. Il segnale $OUT$ è in ritardo rispetto a $IN $ di $\approx 20ns$.
+\item[3)] \underline{Linea di ritardo}: vari moduli. L'ingresso $IN$ viene ritardato all'uscita $OUT$ regolato dalle apposite levette da 3.5 a 35 $ns$.
+\item[4)] \underline{Unità logica}:1 modulo x 3 canali. Il singolo canale può funzionare da AND oppure da OR, ha un ingresso di segnale $IN$, un'ingresso di veto $V$,  2 uscite $OUT$ e 1 uscita negata $\overline{OUT}$. Produce un uscita per variazione degli ingressi di durata minima $\approx 5 ns$.
+\item[5)] \underline{Dual gate generator}: modello LeCroy 222, genera all'uscita $NIM$ un gate (segnale \textit{vero} NIM ) di durata  regolabile dall'operatore con la manopola di scala e il trimmer da 100 ns a 1.1s . Al termine di questo gate genera un un breve segnale di durata $10 ns$ all'uscita $DEL$. Dispone di vari altri output e impostazioni, ma non sono di interesse nella presente applicazione.
+\item[6)] \underline{generatore di clock}: genera impulsi (\textit{tick}) NIM a distanza temporale di $100 ns$. Viene impiegato per effettuare misure di tempo. L'intervallo degli impulsi rappresenterà quindi la risoluzione dell'apparato per la misura del tempo.
+\item[7)] \underline{Contatore}: 1 modulo x canali. Ogni canale conta i segnali di ingresso (accetta sia NIM che TTL) in una determinata finestra temporale GATE, che può essere generato dal sottomodulo temporizzatore con il tempo scelto dall'operatore ($f_{max}= 80 \, MHz$, $W_{min}= 8 \, ns$).
+\item[8)] \underline{Moduli CAMAC}: 1 modulo CAMAC Scaler-16ch necessario per contare i tick il quale consiste sostanzialmente in un registro a 24 bit a 100 MHz;  1 modulo STATUS-A per ricevere il segnale di START che consiste sostanzialmente in un latch ovvero un valore tenuto in memoria per un dato tempo; inoltre ogni volta che riceve un segnale di START attiva l'uscita che andrà collegata con il veto della logica di START.
+\item[9)] \underline{Cablaggi}: vari cavi coassiali con definito ritardo. Giunti a T e I, \textit{tappi} $50 \Omega$, adattatori,...
+
+
+
+\end{enumerate}
+
+\item \underline{Oscilloscopio analogico}: modello Tektronix 465; necessario nella misura del rumore del PMT.
+\item \underline{Oscilloscopio digitale} : linea Tektronix TDS; grazie ai 3 canali disponibili viene impiegato per verificare coincidenze, durate e ritardi dei segnali logici.
+\item \underline{Computer} : sistema che si interfaccia con l'hardware CAMAC e scrive su disco i valori trasmessi. Questi vengono sia analizzati on-line con software ROOT oppure trasferiti su memoria esterna ed analizzati off-line (come fatto nella presente relazione). 
+\end{enumerate}
+
+\section{Prima giornata}
+\subsection{Analisi del rumore del PMT del rivelatore \textbf{T}}
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{minipage}[c]{0.4\textwidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=0.07]{immagini/DSC_0029.JPG}
+%\subcaption{blablabla}
+\end{minipage}
+\hspace{8mm}
+\begin{minipage}[c]{.45\textwidth}
+\includegraphics[scale=0.06]{immagini/DSC_0028.JPG}
+%\subcaption{blabla}
+\end{minipage}%
+\caption{Analisi rumore del PMT}
+\label{oscillo}
+\end{center}
+\end{figure}
+
+
+Lo scintillatore $T$ si impiega, dato la sua piccola area, per determinare l'efficienza di \textit{A1} e \textit{B} .
+Considerando il suo spessore limitato, così come l'efficienza luminosa, i fotoni di scintillazione prodotti dal passaggio del $\mu$ saranno pochi ($dE \approx 10^0 MeV$) e produrranno un segnale piccolo, in generale confrontabile con il segnale di rumore del PMT, quindi non può essere facilmente "separato" usando un discriminatore.
+
+Poichè la miura di efficienza consisterà (come spiegato in seguito) in una misura di coincidenza, si deve ottenere una condizione di lavoro per $T$ tale che il rate di rumore del PMT sia paragonabile con il rate di eventi atteso.
+
+Si costruisce un tappo con nastro isolante per chiudere l'apertura nel PMT in cui è posizionato il fotocatodo. Questa operazione espone il fotocatodo alla luce ambientale, quindi va eseguita ovviamente senza alimentazione (e anche in questo caso cercando di limitare il più possibile il tempo di esposizione).Si visualizza il segnale di rumore sull'oscilloscopio analogico (vedi Fig.(\ref{oscillo})).
+
+
+
+
+ La bontà della chiusura viene valutata facendo passare una torcia davanti al tappo e guardando se la traccia dell'oscilloscopio cambia di intensità luminosa.
+
+Quindi si passa a studiare i conteggi di rumore in funzione della \textit{threshold} del discriminatore, usando il contatore (collegamenti in Fig.(\ref{crate}), segnali in Fig(\ref{discr})) con un tempo impostato di $\Delta t = 200 s $.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=1]{immagini/sig_discriminatore.png}
+\caption{Segnale in ingresso (azzurro) e in uscita (giallo) dal discriminatore}
+\label{discr}
+\end{figure}
+
+
+Si ripete la misura per due valori di alimentazione $HV$; i dati ottenuti sono graficati in Fig.(\ref{rumore}) con relativo Fit esponenziale.
+
+
+
+Da questo grafico si deve estrapolare il valore di \textit{threshold} tale che il rate di rumore sia paragonabile al rate atteso muoni cosmici. Quest'ultimo lo si ricava conoscendo l' Eq.(\ref{cosmici}) e l'area di \textbf{T}:
+
+\begin{equation}
+\int_{emisfera} I_0 \, A_{\mathbf{T}} \, d\Omega=I_0 \, A_{\mathbf{T}}\int_0^{2\pi} d\phi \int_0 ^{\frac{\pi}{2}} cos^2 \theta sin \theta d\theta = 100 \cdot 10^{-2} \cdot \frac{2 \pi }{3} \approx 2 \; [\frac{1}{s}]
+\end{equation}
+
+Si vede quindi che a questo valore corrisponde una $V_{th} \approx 55 mV$ per $HV=2050V$ oppure $V_{th} \approx 90 mV$ per $HV=2100V$. Si sceglie il valore più basso.
+
+Infine si monta lo scintillatore sul PMT e si osserva all'oscilloscopio il segnale del $\mu$.
+
+\pagebreak
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.8]{immagini/rumorePMT.pdf}
+\caption{Rate di rumore del PMT vs tensione di threshold}
+\label{rumore}
+\end{figure}
+
+\section{Seconda giornata}
+
+
+\subsection{Efficienza del rivelatore \textbf{B}} \label{effpar}
+
+L'efficienza del blocco \textbf{B} si calcola servendosi di \textbf{A2} e \textbf{T}. \textbf{A2} è alimentato con una tensione tipica consigliata e a threshold minima , \textbf{T} è impostato nelle condizioni precedentemente trovate mentre \textbf{B} ha threshold minima e tensione da determinare. 
+
+L'efficienza è $\epsilon=\frac{N_T}{N_D}$ dove $N_T$ sono i conteggi di \textit{tripla} cioè l'AND dei tre segnali (ottenuto con opportuno ritardo sul segnale di \textbf{B}) e $N_D$ sono i conteggi di \textit{doppia} cioè l'AND di \textbf{T} e \textbf{A2}. Il circuito è mostrato in Fig(\ref{circuito}); esso permette di ottenere $N_D$ e i relativi $N_T$ al variare della tensione di alimentazione $HV$ di \textbf{B}. Il tempo impostato è $\mathbf{\Delta t =}$ 300s.
+\begin{figure}[htbp]
+\begin{center}
+\begin{minipage}[c]{.45\textwidth}
+\includegraphics[scale=0.075]{immagini/DSC_0031.JPG}
+\subcaption{Collegamenti elettronica.}
+\label{circuito}
+\end{minipage}%
+\hspace{30mm}%
+\begin{minipage}[c]{0.3\textwidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=0.7]{immagini/sig_effic.png}
+\subcaption{Segnale di doppia e di tripla (allineati con opportuno delay)}
+\end{minipage}
+\caption{Setup per la misura dell'efficienza\label{eff}}
+\end{center}
+\end{figure}
+
+Le misure ottenute sono riportate e graficate in Fig.(\ref{grafeffB}).
+
+
+
+\begin{figure}[htbp]
+\begin{center}
+\makebox[0pt][c]{
+\hspace{-1cm}\begin{minipage}[l]{.4\linewidth}
+\renewcommand\arraystretch{1.2}
+\begin{tabular}{|c|c|c|c|c|}
+%\renewcommand\arraystretch{1.2}
+\hline
+HV {[}V{]} & $N_D$ {[}\#{]} & $N_T$ {[}\#{]} & $\epsilon$ {[}\%{]} & $\sigma_{\epsilon}$ {[}\%{]} \\ \hline
+1950       & 128           & 110           & 86                & 3                         \\ \hline
+1898       & 132           & 112           & 85                & 3                         \\ \hline
+1849       & 125           & 104           & 83                & 3                         \\ \hline
+1801       & 103           & 82            & 80                & 4                         \\ \hline
+1750       & 116           & 99            & 85                & 3                         \\ \hline
+1699       & 110           & 86            & 78                & 4                         \\ \hline
+1647       & 130           & 90            & 70                & 4                         \\ \hline
+1551       & 112           & 21            & 19                & 4                         \\ \hline
+1451       & 103           & 5             & 5                & 2                         \\ \hline
+1351       & 99            & 1             & 1                & 1                         \\ \hline
+\end{tabular}
+\label{my-label}
+%\subcaption{Misure ricavate per la taratura}
+\end{minipage}%
+\hspace{15mm}%
+\begin{minipage}[c]{0.6\linewidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=1]{immagini/efficienza.pdf}
+%\subcaption{)}
+\end{minipage}
+}
+\caption{Misura dell'efficienza del blocco \textbf{B} (nota: errore sull'efficienza assunto bernulliano) \label{grafeffB}}
+\end{center}
+\end{figure}
+
+
+Osservando la curva, come prima conclusione si decide di scegliere $HV=1750$ ovvero all'inizio del plateau, per avere un'alta efficienza $\epsilon=85 \pm 4 \%$ e un basso rumore.
+Si può estrapolare un valore di efficienza dall somma i parametri \textit{a} e \textit{b} della Erf ottenendo: $\epsilon_{\mathbf{B}}=84 \pm 1 \%$
+
+\subsection{Determinazione Threshold per \textbf{B}}
+
+Per quanto detto nel Par(\ref{riv}) il blocco \textbf{B} dovrà essere in grado di rivelare sia il segnale di passaggio del $\mu$, sia il segnale del suo decadimento.
+Il primo deriva da una deposizione di energia minima $E_{\mu} ^{\textbf{B}} \approx 100 MeV$, il secondo da circa la metà $E_{e-} ^{\textbf{B}} \approx 50 MeV$
+\footnote{non essendo in condizione m.i.p., l'elettrone (o positrone) perderà tutta la sua energia all'interno del blocco.} (cfr. Eqq. (\ref{enmu}) e (\ref{endecmu}) ).
+Pertanto se si trigghera l'oscilloscopio con il segnale di \textit{doppia} e si osserva il segnale in uscita dal PMT di \textbf{B} si vedrà il segnale di ampiezza $V_{\mu}$ prodotto dal passaggio del $\mu$ nelle condizioni di lavoro impostate e il segnale prodotto dall'elettrone del decadimento sarà quindi $V_{e}=\frac{V_{\mu}}{2}$. Nel punto di lavoro scelto, ovvero il punto di ginocchio, si ha:
+
+\begin{equation}
+HV=1750V \quad (V_{th}=40mV) \qquad \mathbf{:} \qquad V_{\mu} \approx 60 mV \quad\rightarrow \quad V_{e-} \approx 30 mV
+\end{equation}
+
+Poichè la minima \textit{threshold} impostabile nel discriminatore è di $40mV$ segue che in questo caso non verrebbe mai letto il segnale di decadimento. Si modifica quindi il punto di lavoro, alzando $HV$ , cioè "inoltrandosi" nel plateau di Fig.(\ref{grafeff}) e di conseguenza $V_{\mu}$. Si sceglie:
+
+\begin{equation}
+HV=1955V \quad (V_{th}=40mV) \qquad \mathbf{:} \qquad V_{\mu} \approx 150 mV \quad\rightarrow \quad V_{e-} \approx 75 mV
+\end{equation}
+
+\subsection{Efficienza del rivelatore \textbf{A1}}
+
+Si effettua la stessa procedura del precedente Par.(\ref{effpar}) sostituendo  \textbf{B} con \textbf{A1}. Si ottiene:
+
+\begin{figure}[htbp]
+\begin{center}
+\makebox[0pt][c]{
+\hspace{+2cm}\begin{minipage}[l]{.4\linewidth}
+\renewcommand\arraystretch{1.2}
+\begin{tabular}{|c|c|c|c|c|}
+%\renewcommand\arraystretch{1.2}
+\hline
+HV {[}V{]} & $N_D$ {[}\#{]} & $N_T$ {[}\#{]} & $\epsilon$ {[}\%{]} & $\sigma_{\epsilon}$ {[}\%{]} \\ \hline
+    1800   &     79       &    2      &       2         &          2           \\ \hline
+    1850  &       76     &      14     &       18         &            4             \\ \hline
+  1900    &     99       &     44       &       44          &           5              \\\hline
+   1950   &     99       &      57      &        57        &            5             \\ \hline
+    2000  &     99       &     49       &        50        &            5             \\ \hline
+\end{tabular}
+\label{my-label}
+%\subcaption{Misure ricavate per la taratura}
+\end{minipage}%
+\hspace{15mm}%
+\begin{minipage}[c]{0.7\linewidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=1]{immagini/efficienzaA1.pdf}
+%\subcaption{)}
+\end{minipage}
+}
+\caption{Misura dell'efficienza del blocco \textbf{A1} (nota: errore sull'efficienza assunto bernulliano) \label{grafeff}}
+\end{center}
+\end{figure}
+
+Si può estrapolare dai parametri \textit{a} e \textit{b} un'efficienza $\epsilon_{\mathbf{A1}}=53 \pm 4 \%$. La tensione consigliata di 2000V si verifica essere correttamente disposta all'inizio del plateau.
+
+\pagebreak
+\section{Terza giornata}
+
+\subsection{Curva di coincidenza di A1 e B} \label{coinc}
+
+\begin{wrapfigure}{l}{0.3\textwidth}
+\begin{center}
+\includegraphics[width=0.3\textwidth]{immagini/DSC_0033.JPG}
+\caption{Linee di ritardo per \textbf{B} e \textbf{A1}}
+\label{ritardo}
+\end{center}
+\end{wrapfigure}
+
+In questa giornata si analizzano larghezze e ritardi relativi dei segnali (logici) generati dai rivelatori per poter costruire il circuito finale di Fig.(\ref{fin}). Si vuole studiare la curva di coincidenza di \textbf{B} e \textbf{A1}, ovvero i conteggi (e quindi rate) in uscita dal loro AND, in funzione di un ritardo relativo $\Delta_{r}$ fra gli ingressi.
+
+Per far ciò basta interporre fra l'uscita del discriminatore e l'ingresso dell'AND delle scatole di ritardo come mostrato in Fig.(\ref{ritardo}). Il ritardo relativo  sarà $\Delta_{r}=\Delta_{A1} - \Delta_{B}$. 
+
+Ricordando che il PMT di \textbf{B} è intrinsecamente più lento, lo si ritarda con 2 scatole, mentre per \textbf{A1} se ne usano 4 ; questo introduce un ritardo di offset fra i due dovuto al bias della singola scatola e i cavi di connessione $3.5+3.5+1+1=9 \;[ns]$ da aggiungere sempre a $\Delta_{r}$.
+Combinando le levette si può far variare il ritardo.
+I rivelatori sono impostati con le condizioni operative trovate precedentemente. Le ampiezze dei segnali discriminati vengono impostate a $w_{A1}= 36 ns $ e $w_{B}= 54 ns$ \footnote{scegliere $w_{A1}$ < $w_{B}$ serve nel caso in cui si volesse misurare il tempo di volo. Nella presente esperienza non è strettamente necessario.}. Il tempo di acquisizione è $\Delta_t=300s$.
+La curva di coincidenza ottenuta è mostrata in Fig(\ref{curvaco}).
+Ci si aspetta idealmente un rettangolo; nella realtà (per effetti di jitter e variazioni stocastiche) si osserva una curva trapezoidale. Si tenta quindi un Fit con una funzione definita a tratti tipo trapezio che assume valore $a$ alto nell'intervallo $x_{s1} \div x_{d1}$ e il valore basso $b$ per $\Delta_r < x_s \wedge \Delta_ r > x_d$.
+Anche se il valore di $\chi ^2 $ porta a rigettare la curva di Best Fit, la si può comunque tenere in considerazione per qualche osservazione qualitativa:
+\begin{itemize}
+\item Il rettangolo corrispondente ha come ascisse quelle dei punti di $FWMH$ che si trovano essere a $10 \; \text{e} \; 95 \; [ns]$ quindi il ritardo del PMT di \textbf{B} si può stimare sui  $10 ns$ (in quanto il tempo di volo del $\mu$ fra i due rivelatori è $\approx 100 ps$ quindi trascurabile)
+\item La FWMH vale $\approx 95-10 = 85 \; [ns] $ che corrisponde entro gli errori alla somma $w_{A1}+w_{B}$ come ci si aspetta
+\item Il rate di eventi "veri" è fornito dal parametro $a \approx 2.4 \, \frac{1}{s}$ mentre quello delle coincidenze spurie è $b \approx 0.04 \, \frac{1}{s}$
+
+\end{itemize}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.75]{immagini/coincidenza.pdf}
+\caption{Curva di coincidenza di \textbf{B} e \textbf{A1}}
+\label{curvaco}
+\end{figure}
+
+\section{Quarta giornata}
+
+\subsection{Circuito per la misura di $\tau$}  \label{circpertau}
+
+
+In questa fase si costruisce quello che sarà il circuito per la misura finale, eccetto la parte CAMAC ovvero quella che interagisce con il Computer. Si può quindi intendere il presente come il circuito per la misura "a mano" del tempo $t_{dec}$. 
+
+\begin{figure}[htbp]
+\begin{center}
+\hspace{-0.0cm}\begin{minipage}[c]{1\linewidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=0.35]{immagini/schematicoNIM.PNG} 
+\subcaption{Schematico per misura di $\tau$ (la parte nel riquadro azzurro verrà sostituita con i moduli CAMAC in seguito )}
+\label{fin}
+%\subcaption{)
+\vspace{1cm}
+\end{minipage}
+\hspace{+0cm}\begin{minipage}[l]{.4\linewidth}
+\includegraphics[scale=0.09]{immagini/DSC_0034.JPG}
+\subcaption{Circuito con logica di START e STOP } 
+\label{start}
+%\subcaption{Misure ricavate per la taratura}
+\end{minipage}%
+\hspace{15mm}%
+\begin{minipage}[c]{0.4\linewidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=0.9]{immagini/A0004DS_MODIFICATA_YEAH.png}
+\subcaption{Logica di START: \textbf{A1} rosa, \textbf{B} giallo, \textbf{A2} azzurro (acquisizone media+accumulo) }
+%\subcaption{)}
+\end{minipage}
+\caption{Circuito per la misura del tempo vita media del $\mu$}
+\end{center}
+\end{figure}
+
+In riferimento a Fig.(\ref{fin}) si può notare che il circuito è costituito essenzialmente da:
+\begin{itemize}
+\item LOGICA DI START: per capire se un muone cosmico si è fermato nel blocco \textbf{B} si costruisce la funzione logica $(A1 \wedge B \wedge \overline{A2})$ che rappresenta un $\mu$ che attraversa sia \textbf{A1} che \textbf{B} ma non \textbf{A2} in quanto fermato da \textbf{B}.
+È importante notare che questa funzione logica non è sempre affidabile : $\mu$ potrebbe attraversare anche \textbf{A2} e non essere rivelato per ragioni efficienza producendo quindi ugualmente il valore falso e quindi di START; allo stesso modo il $\mu$ potrebbe per motivi geometrici attraversare i primi due rivelatori e non \textbf{A2} che produrrebbe nuovamente un valore di falso.
+
+ Per implementare questa funzione logica è necessario regolare i ritardi relativi come visto nel Par. (\ref{coinc}) e le ampiezze $w_i$ : un accorgimento importante è che l'ampiezza $w_{A2}$ sia più grande delle altre e le "contenga" onde evitare che le fluttuazioni dei $w_i$ facciano passare segnali di START falsi. Le regolazioni adottate sono mostrate in Fig.(\ref{start}). Il segnale di START attiva quindi la catena di impulsi del generatore di clock i quali vengono contati in nel canale $N_t$ costituendo un TIMER. Vengono anche contati i segnali di START nel canale $N_s$.
+\item LOGICA DI STOP: Il suo compito è chiaramente quello di fermare il suddetto TIMER. Questo deve accadere quando \textbf{B} rileva l'elettrone prodotto dal decadimento del $\mu$. Il numero di questi segnali di STOP viene contato nel canale $N_{sv}$ e verrà chiamato numero di \textit{stop veri}. Tuttavia accade spesso che a un segnale di START non segua un segnale di \textit{stop vero}; questo ad esempio perchè il segnale di START è sbagliato (come spiegato sopra) oppure perchè l'elettrone generato dal decadimento non ha abbastanza energia (cfr. Par.(\ref{intro})). In questo caso sarà necessario generare uno \textit{STOP fasullo}. Il circuito di STOP  è costituito essenzialmente da due moduli di dual-gate-generator  (d-g-g) e due porte logiche, il suo funzionamento è il seguente :
+\begin{itemize}
+\item il primo d-g-g serve a far partire il gate in cui si accettano STOP dopo un certo ritardo, senza il quale ad ogni START corrisponderebbe sempre immediatamente uno STOP. Il valore a cui impostare questo ritardo dovrà sicuramente essere maggiore della durata del segnale di START che è circa $50 \; ns$ (quindi ad esempio $0.2 \, \mu s$) ma va scelto anche tenendo conto del fenomeno della \textit{cattura muonica}\footnote{$\mu ^- + p = n + \nu_{\mu} \quad \text{(e.g. in uno scintillatore plastico: }\; C+\mu^- = B + \nu \text{)}$. Lo sciame di muoni cosmici che rappresenta la sorgente di questo esperimento è costituito sia da $\mu^+$ che da $\mu^-$ che a livello del mare si presentano con un rapporto di circa $R_{\mu}=\frac{\mu ^+}{\mu ^-} \approx 1.3$ . Per avere solo $\mu ^ +$ si deve ricorrere alla separazione negli acceleratori.} ovvero di un decadimento "indesiderato" che si traduce in uno STOP falso. Nel materiale del blocco a disposizione in laboratorio questo tempo è di circa $\tau_{\mu^-} \approx 100 \; ns$ quindi per evitare di effettuare misure "mescolate" (convoluzione) con la cattura muonica (che a sua volta avrà distribuzione di probabilità esponenziale) si aumenta notevolmente il ritardo. Si stima con i cursori dell'oscilloscopio un valore $\mathbf{T_{d}}=1.68 \pm 0.04 \; [\mu s]$.
+
+\item il secondo d-g-g aprirà il gate di accettazione dello STOP dopo il delay del primo d-g-g. Questo gate è quindi messo in coincidenza con il segnale di decadimento proveniente da \textbf{B}. Se quest'ultimo non arriva, sarà lo stesso d-g-g attraverso l'uscita $DEL$ a generare lo STOP fasullo che viene quindi messo in OR con quello vero. L'impulso del $DEL$ viene generato al termine del gate (come spiegato in Par.(\ref{strum})), pertanto ha senso scegliere un valore della finestra molto più grande di $\tau$. Si decide di impostare una finestra di durata $\mathbf{T_{f}}=4.56 \pm 0.04 \; [\mu s]$.
+\end{itemize}
+\end{itemize}
+
+
+
+Una volta preparato il circuito lo si può testare nel seguente modo:
+
+
+
+\subsection{Test misura $t_{dec}$}
+
+Con i 3 valori visualizzati dal contatore si può estrapolare la misura del tempo di decadimento $t_{dec}$ e del relativo tempo di vita media $\tau$. La formula da applicare è la seguente:
+
+\begin{equation}
+t_{dec} = \frac{N_t \cdot T_c - (N_s - N_{sv})\cdot T_t}{N_s}
+\end{equation}
+dove $(N_s - N_{sv})$ sarà il numero di stop fasulli, $T_t=T_d + T_f = 6.24 \pm 0.06 [\mu s]$ è il tempo di "decadimento fasullo", $T_c= 100 ns$ è il periodo di clock del Timer (assunto senza errore).
+Si imposta un tempo di acquisizione di $300s$, si ripete la misura 3 volte; dati raccolti e i risultati ottenuti sono riportati in Tab.(\ref{taumano}).
+
+E' ovvio che con la raccolta di sole 3 misure non si può ottenere una statistica attendibile e quindi non ha senso calcolare $\tau$ : queste misure sono da intendere come un test del corretto funzionamento dell'apparato. In effetti questo ha esito positivo in quanto le misure di $t_{dec}$ ottenute hanno l'ordine di grandezza atteso e sono anche vicine al valore atteso di $\tau$.
+
+Particolare attenzione va posta sull'errore che grava su $t_{dec}$. Come si vede questo arriva addirittura al $100 \%$ facendo quindi perdere di senso la misura. Questo è causato dalla fortissima dipendenza dell'incertezza di $t_{dec}$ dall'errore su $T_t$ come si può verificare applicando la formula di propagazione degli errori indipendenti. Tuttavia la misura va interpretata come detto precedentemente.
+
+\begin{table}[]
+\centering
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+$N_s \; [\#]$ & $N_{sv} \; [\#]$ & $N_t \; [\#]$           & $t_{dec} [\mu s ]$ \\ \hline
+$480\pm20$   & $131\pm11$      & $(286\pm2) \cdot 10^2$ & $5\pm1$         \\ \hline
+$967\pm31$   & $71\pm8$        & $(579\pm2) \cdot 10^2$ & $3\pm3$         \\ \hline
+$919\pm30$   & $62\pm8$        & $(551\pm2) \cdot 10^2$ & $3\pm3$         \\ \hline
+\end{tabular}
+\caption{Test misura di $t_{dec}$. Vedi commenti sotto.}
+\label{taumano}
+\end{table}
+
+\subsection{Sistema di acquisizione finale}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.35]{immagini/schematicoCAMAC.png}
+\caption{Circuito finale per la misura di $\tau$}
+\label{camac}
+\end{figure}
+
+Il sistema di acquisizione finale dovrà essere in grado di prendere un gran numero di misure di $t_{dec}$ in automatico e salvarle nella memoria del computer. Questo si realizza introducendo un crate in grado di interagire con il software scritto nel computer, in questo caso usando protocollo CAMAC. Lo schematico in Fig.\ref{fin} viene quindi sostituito con quello in Fig. \ref{camac}.
+I vari moduli del crate interagiscono fra loro e con il computer attraverso il bus dedicato (che fisicamente è posto sul retro del crate).
+Per dattagli sul funzionamento dei moduli si rimanda a Par.(\ref{moduli}) mentre per dettagli sul software di gestione si veda App.\ref{Acamac}. 
+
+Il programma accetta come dati di ingresso i valori minimo e massimo di $t_{dec}$ con i quali si decide quali dati scartare via software (questo perchè è necessario avere un intervallo più stringente di quello definito tramite hardware cioè dall'elettronica, come spiegato precedentemente). Inoltre accetta ovviamente il numero di conteggi da prendere nella sessione. I dati salvati vengono poi esportati su file di testo per successiva analisi.
+
+\space
+
+Si conclude la giornata lanciando un'acquisizione di prova che sia attiva fino all'inizio della giornata di lavoro successiva. Quindi si imposta un valore di conteggi sensato dopo aver stimato il rate di dati acquisiti.
+
+
+\section{Quinta giornata} 
+
+\subsection{Analisi dell'acquisizione di prova}
+
+Per questa acquisizione si sono impostati limiti hardware e software di $t_{dec}$ meno restrittivi così da poter osservare meglio il comportamento del sistema e le eventuali criticità. È stato portato $T_d$ a circa $0.2 \mu s$ e $T_f$ a circa $10 \mu s$.
+
+Le misure ottenute sono 33287; vengono elaborate con Mathematica (spiegato in App. \ref{Amath}) e sono riportate in in Fig.(\ref{istoprova}).
+
+\begin{figure}[htbp]
+\begin{center}
+\hspace{-18mm}%
+\begin{minipage}[c]{.35\textwidth}
+\includegraphics[scale=0.75]{immagini/HISTO18ore.pdf}
+\subcaption{Dati complessivi (bin=2)}
+\label{HISTO18ORE}
+\end{minipage}%
+\hspace{40mm}%
+\vspace{-0mm}
+\begin{minipage}[c]{0.45\textwidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=0.85]{immagini/HISTOFIT18ore.pdf}
+\subcaption{Rebinning (bin=5) e Fit esponenziale su intervallo ridotto}
+\label{HISTOFIT18ORE}
+\end{minipage}
+\caption{Misure dell'acquizione di prova\label{istoprova}}
+\end{center}
+\end{figure}
+
+È abbastanza visibile in Fig (\ref{HISTO18ORE}) la presenza delle due distribuzioni esponenziali, la prima dovuta al suddetto fenomeno della cattura muonica (indicativamente per $t<1 \mu s$), il secondo è la distribuzione ricercata del decadimento di $\mu$ (indicativamente per $t>2\mu s$). Poichè i due tempi di decadimento sono molto diversi fra loro si può eseguire un Fit, una volta ristretto l'intervallo di tempo opportunamente, usando la normale distribuzione esponenziale ovvero senza dover impiegare una funzione modificata che tenga conto di entrambi i fenomeni. \footnote{vedi distribuzione di formula (3.2) di - B.Lim e D.Ruben "Investigation of combined positive and negative muon decay in a scintillator" - 7/11/05 - }  
+
+Inoltre si può osservare come l'istogramma dopo la decrescita esponenziale torni a crescere per $t > 5 \mu s$.
+Questo è dovuto al fenomeno di \textit{after pulse} del PMT cioè segnali (soprasoglia) generati da una emissione indesiderata di elettroni da uno dei dinodi che attiva la conseguente cascata.
+Questo fenomeno porta quindi a dover fissare un limite destro per il calcolo di Fit; in conclusione verranno solo usati 4 bin come si vede in Fig.(\ref{HISTOFIT18ORE}) a cui corrispondono poco più di 1000 misure.
+
+Il risultato che si ottiene in questo run di prova $\tau=2.3 \pm 0.3 \; \mu s $ è sicuramente ottimo rispetto al miglior valore che si possa ottenere con la risoluzione di questo apparato. Ci si aspetta quindi nell'acquisizione finale di riuscire a migliorare ulteriormente il valor medio e l'incertezza.
+
+
+\subsection{Analisi del trigger}
+
+Si vuole vedere quale logica di trigger (cioè di segnale di start) fornisce risultati migliori, ovvero il \underline{minor} rapporto START / STOP veri, ovvero "quanti START devono avvenire per avere uno STOP". Si imposta la finestra di acquisizione del contatore a $300s$; si effettua una sola misura per tipologia di trigger; si ottengono i i risultati di Tab(\ref{trig}).
+
+
+
+Si può notare che il trigger migliore è quello adottato appunto nella quarta giornata ed è quello che verrà adottato per l'acquisizione finale. Tuttavia è interessante notare che l'anticoincidenza di \textbf{A2} è poco influente sul risultato, come mostrato confrontando il primo caso con il terzo.
+
+\begin{table}[]
+\centering
+\renewcommand\arraystretch{1.2}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Trigger                              & START {[}\#{]}                  & STOP (veri) {[}\#{]} &$ \frac{START}{STOP}$ \\ \hline
+$(A1 \wedge B \wedge \overline{A2})$ & $520\pm20$                      & $40\pm 6$                & $13\pm2$                  \\ \hline
+$( B \wedge \overline{A2})$          & $(3813\pm6 \; )\cdot 10^2$   & $(314\pm6 ) \cdot 10$                & $121\pm2$                  \\ \hline
+$(A1 \wedge B )$                     & $720\pm30$                      & $47\pm7$                & $15\pm2$          \\       \hline
+\end{tabular}
+\caption{Analisi delle logiche di trigger}
+\label{trig}
+\end{table}
+
+Al termine della giornata si deve lanciare l'acquisizione che durerà circa 60 ore. In seguito all'analisi dell'acquisizione di prova si decide di impostare di nuovo $T_d$ a $1.68 \mu s$. Il limite destro è invece imposto dal software, che scarterà i valori maggiori di $6 \mu s$.
+\bigskip
+
+\section{Analisi dati finale}\label{datifinale}
+
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{immagini/HISTOFINALE.pdf}
+\caption{istogramma delle misure di $t_{dec}$ (bin=2)}
+\label{istofinale}
+\end{figure}
+
+Dati i limiti più stringenti per l'accettazione della misura, si ottengono solo 17750 valori (Fig.(\ref{istofinale})).
+Si può notare che resta traccia della gaussiana dell'after-pulse e che sono presenti conteggi indesiderati di $t_{dec}<1,7 \mu s$ dovuti probabilmente a fluttuazioni dell'elettronica. Si deve quindi procedere ad una ulteriore restrizione dell'intervallo di tempo da considerare. I dati sono analizzati con il software Mathematica (per dettagli vedi App.(\ref{Amath})). Il risultato è riportato in Fig.(\ref{istofitfinale})
+
+La funzione di Fit usata ha un fattore di scala rispetto a \ref{mainformula} che ovviamente non influisce sul valore del parametro $\tau$ (quindi gli istogrammi riportati non rappresentano la densità di probabilità).
+Andrebbe introdotto anche un parametro additivo all'esponenziale, che rappresenti il rumore, tuttavia si ottiene un risultato più stabile ponendolo uguale a zero. Si deve scegliere opportunamente l'intervallo di valori a cui ridurre l'istogramma e il binning, con un pò di tentativi si ottiene il migliore risultato con $t_{sx}=25 \mu s$ e $t_{dx}=49 \mu s$ con $5$ bin (Questo corrisponde a 7778 misure). Il risultato si dimostra stabile anche variando (senza eccedere) questi dati.  Il valore di $\chi ^2$ porta a concludere che la distribuzione sperimentale è sicuramente compatibile con quella attesa, al livello di confidenza del $5 \%$ (vedi App.(\ref{Acamac})) e come misura finale si può ottiene:
+
+\begin{equation}
+\boxed{\tau=2.2 \pm 0.1 \;[\mu s]}
+\end{equation}
+
+che, considerando l'incertezza strumentale sulla misura del tempo, è la migliore misura che si possa ottenere del valore di $\tau$ dichiarato in \ref{mainformula}.
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.9]{immagini/HISTOFITFINALE.pdf}
+\caption{Fit esponenziale per la misura di $\tau$ (bin=4.8)}
+\label{istofitfinale}
+\end{figure}
+
+
+\newpage
+
+\appendix 
+\section{Software di acquisizione} \label{Acamac}
+Questo programma scritto in C oltre alle istruzioni CAMAC presenta le istruzioni della libreria ROOT poichè costruisce un istogramma in tempo reale.
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.8]{immagini/camac1.PNG}
+\end{figure}
+
+\pagebreak
+\section{Script Mathematica per analisi dati} \label{Amath}
+
+Si riportano qui solo le parti più importanti dello script per la costruzione dell'istogramma e relativo Fit.
+Come spiegato nel Par(\ref{datifinale}), la funzione di Fit usata ha un fattore di scala rispetto a \ref{mainformula} che ovviamente non influisce sul valore del parametro $\tau$ pertanto gli istogrammi riportati non rappresentano una densità di probabilità.
+Verranno usati i comandi interni \textit{Histogram} per la visualizzazione grafica degli istogrammi e \textit{NonLinearFitModel} che contiene l'algoritmo di Best Fit con il metodo dei minimi quadrati per una arbitraria funzione con arbitrario numero di parametri.
+I dati di ingresso saranno, oltre alla lista di misure contenute in un file di testo, la scelta dell'intervallo di interesse sull'asse delle ascisse (grandezze denominate \textit{min} e \textit{max}) e il numero di bin in cui suddividere questo intervallo.
+L'errore dei punti corrispondenti alle colonne è assunto poissoniano, ipotesi che richiede un numero "grande" di dati per ogni bin, come sicuramente accade nei casi analizzati.
+
+Il codice è riportato nelle pagine che seguono.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{immagini/math1.PNG}
+\end{figure}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{immagini/math2.PNG}
+\end{figure}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{immagini/math3.PNG}
+\end{figure}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{immagini/math4.PNG}
+\end{figure}
+
+\end{document}

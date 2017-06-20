@@ -1,0 +1,232 @@
+\documentclass[12pt,a4paper,openright,twoside]{article}
+
+\usepackage[italian]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8x]{inputenc}
+%\usepackage[applemac]{inputenc}
+
+\usepackage[]{hyperref} %collegamenti ipertestuali + url internet
+\usepackage{url}
+\usepackage{xcolor} 
+\hypersetup{ %personalizzazione collegamenti ipertestuali
+    colorlinks = false,
+    linkbordercolor = {yellow},
+}
+
+\usepackage[centertags]{amsmath}
+\numberwithin{equation}{section} %numerare le formula fino alla sezione (scrivere SUBSECTION per arrivare alla sottosezione)
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amstext}
+\usepackage{enumitem}%per gli elenchi numerati romani
+\usepackage{multirow}%per tabelle con righe unite
+\usepackage{colortbl}
+\usepackage[version=2]{mhchem} %nuclidi
+\usepackage{footnote} %per fare note in tabella
+\makesavenoteenv{table} %per fare note in tabella
+\usepackage[T1]{fontenc} % mette le due virgolette uguali e dritte (forse)
+
+\usepackage[pdftex]{graphicx}%per le immagini
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{newlfont}
+\usepackage[small,bf]{caption}
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{units}%per il segno di frazione figo
+
+\usepackage{subfigure}%matrici di immagini
+\usepackage{wrapfig}%per le immaggine nel a lato testo
+\usepackage[percent]{overpic}%per mettere il testo davanti alle figure
+
+%PAGE formatting
+\setlength{\hoffset}{-25,4mm}
+\setlength{\captionmargin}{10pt}
+\evensidemargin=17mm
+\oddsidemargin=17mm
+\linespread{1}
+\textwidth=175mm
+\textheight=230mm
+
+\hyphenation{}
+
+
+\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\fancyhf{}
+\fancypagestyle{plain}{\fancyhead{}}
+\fancyhead[LE, RO] {\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addto\captionsitalian{\renewcommand{\chaptername}{}}
+
+\title{\textbf{Misura del coefficiente di assorbimento della radiazione-$\gamma$ in Pb e Al}}
+\date{\small{ Turno di misura\\
+	23/2/2017}}
+\author{Gruppo 3: \\  
+		Stefano Paracchino 
+		}
+
+
+
+\begin{document}
+\maketitle
+    
+
+%--------------------INDICE---------------------------------------------------------------------
+\tableofcontents                        %crea l'indice
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%non numera l'ultima pagina sinistra
+\pagenumbering{arabic}
+%--------------------------------------------------------------------------------------------------------
+\pagebreak
+\section{Scopo dell'esperienza}
+L'obiettivo è verificare la legge fondamentale di attenuazione dell'intensità $I$ della radiazione nell'attraversare materiali si spessore $x$ e quindi misurare il \textit{coefficiente di assorbimento} $\mathbf{ \mu} \; [cm^{-1}]$
+
+\begin{equation} \label{ass}
+I(x)=I_0 e^{- \mu x}
+\end{equation}
+
+con $I_0$ intensità della radiazione incidente sul materiale.
+L'intensità è direttamente proporzionale al numero di fotoni, i quali sono le particelle che verranno rilevate dalla strumentazione di questa esperienza.
+
+I valori di $\mu $ ottenuti verranno confrontati con il database del NIST\footnote{Per Pb: http://physics.nist.gov/PhysRefData/XrayMassCoef/ElemTab/z82.html
+
+Per Al:  http://physics.nist.gov/PhysRefData/XrayMassCoef/ElemTab/z13.html}, che fornisce il \textit{coefficiente di attenuazione di massa} $\mu_a =\frac{\mu}{\rho} \; [\frac{cm^2}{g}] $ dove $\rho \; [\frac{g}{cm^3}] $ è la densità del materiale \footnote{Per Pb e Al: http://ishtar.df.unibo.it/mflu/tafel/densit.html}.
+I valori di $\mu_a$ sono tabulati per vari valori di energia del fotone. In questa esperienza si utilizzeranno fotoni di energia $E_{\gamma}=0.662 MeV$ quindi interpolando i valori forniti per $E_{\gamma}=0.6 MeV$ e $E_{\gamma}=0.8 MeV$ si ottiene:
+
+\begin{gather}
+\mathbf{Al} \qquad \rightarrow \qquad \mu = 0.07504 \; [\frac{cm^2}{g}] \cdot 2.70 \; [\frac{g}{cm^3}] = \boxed{ 0.2026 \; [cm^{-1}]} \\
+\mathbf{Pb} \qquad \rightarrow \qquad \mu = 0.1136 \; [\frac{cm^2}{g}] \cdot 11.34 \; [\frac{g}{cm^3}] = \boxed{ 1.288 \; [cm^{-1}]}
+\label{mu}
+\end{gather}
+
+I valori sono assunti senza errore.
+
+
+\section{Strumentazione e Campioni}
+
+\begin{enumerate}
+\item \underline{sorgente}: i raggi-$\gamma$ sono prodotti dall'isotopo radioattivo $\ce{^{137}_{55}\mathbf{Cs}}$ poichè ha un unico fotopicco ben definito di energia $E_{\gamma}=0.662 MeV$
+\item \underline{Campioni assorbitori}: $7$ placchette di Pb, $4$ placchette di Al. Hanno area rettangolare (lato di qualche cm ) e posso essere posizionate nell'apposito portacampioni fra sorgente e rivelatore.
+Possono essere messi in successione a formare differenti spessori totali, ovvero la variabile $x$ di Eq.(\ref{ass}).
+Gli spessori $x$ delle singole placchette sono riportati in Tab.(\ref{spess}).
+\item \underline{rivelatore}: Rivelatore a scintillazione $NaI(Tl)$ e tubo $PMT$ (per dettagli vedi \textit{Esperienza Taratura MCA}). Considerando il principio di funzionamento di un rivelatore di questo tipo, si osserverà in questa esperienza una variazione del profilo energetico al variare dello spessore $x$. In particolare si alzerà la "valle" fra spalla Compton e fotopicco a causa appunto dell'aumento di probabilità del primo effetto.
+
+\item \underline{MCA}: per la descrizione generale di un MCA ci si riferisce a \textit{Esperienza Taratura MCA}, in questo caso, il MultiChannel Analyzer è montato su un modulo del rack; non può trasferire i dati su memoria esterna per successivo processamento quindi gli spettri acquisiti sono analizzati solo nel tempo di svolgimento dell'esperienza. Per far ciò si può far scorrere lungo i canali un cursore verticale che fornisce il corrispondente valori conteggio. Analogamente fornisce i conteggi "di area" presenti nell'intervallo di canali fra due cursori.
+
+Può contenere nella sua memoria interna 8192 canali quindi una misura con risoluzione a 13 bit. Se si adottano risoluzioni inferiori, la memoria può essere suddivisa in sottosezioni senza essere sovrascritta (e.g. 16 spettri da 512 canali). Questa funzione è molto utile per poter analizzare uno spettro mentre se ne acquisisce un altro e quindi velocizzare la presa dati.
+
+Quando si imposta il tempo di acquisizione è anche possibile definire se vada considerato come \textit{tempo reale} oppure come \textit{tempo vivo} ( cioè tempo che non considera gli intervalli di \textit{tempo morto}, e.g. il tempo di conversione dell'ADC e il tempo di scrittura in memoria).
+Accetta segnali fino a $8V$.
+
+\item \underline{Alimentatore:} modulo NHQ-203M fornisce che l'alta tensione al PMT.
+\item \underline{Amplificatore}: modulo amplificatore ORTEC con $Z=90 \Omega $ (per dettagli vedi \textit{Esperienza Taratura MCA}).
+\item \underline{Oscilloscopio:} Oscilloscopio analogico Tektronix $BP 100 MHz$ utilizzato per il controllo del segnale in uscita dal MCA.
+\end{enumerate}
+
+\section{Acquisizione misure ed analisi dati}
+\subsection{Operazioni preliminari}
+Si misurano gli spessori dei campioni di materiale assorbitore con calibro cinquantesimale. Le misure sono riportate in Tab.(\eqref{spess}). Data l'irregolarità della forma delle placchette si stima un inceretezza sulla misura di $0.05mm$ per Al e $0.1mm$ per Pb.
+
+\begin{table}[]
+\centering
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{8}{|c|}{Allumino}                                         \\ \hline
+Sigla             & $A_a$     &$ B_a$     & $C_a $    & $D_a$     &      &      &      \\ \hline
+$x\pm 0.005 \;[cm]$ & 1.002 & 1.002 & 0.884 & 1.002 &      &      &      \\ \hline
+\multicolumn{8}{|c|}{Piombo}                                           \\ \hline
+Sigla             &$ A_p$     & $B_p $    & $C_p$     & $D_p $    & $E_p   $ & $F_p  $  & $G_p $   \\ \hline
+$x\pm 0.01 \; [cm]$  & 0.20  & 0.21  & 0.21  & 0.22  & 0.21 & 0.28 & 0.21 \\ \hline
+
+\end{tabular}
+\caption{ spessori $x$ dei campioni assorbitori}
+\label{spess}
+\end{table}
+
+Il PMT viene alimentato alla tensione consigliata di $\mathbf{HV=1000V}$.
+Si posiziona la sorgente e si guarda il segnale in uscita dal PMT all'oscilloscopio per decidere il valore di trigger da impostare nell'amplificatore.
+Si amplifica il segnale di un valore opportuno compatibile con il fondoscala di $8V$.
+Si imposta l'MCA in modo che divida la memoria in 16 slots da \textbf{512 }canali (quest'ultima è una soluzione adatta a soddisfare il compromesso fra tempo di acquisizione e "costruzione" di un picco ben definito). Si sceglie un tempo di acquisizione vivo di {$\mathbf{t_a=5min}$}.
+
+\pagebreak
+\subsection{Acquisizione conteggi}
+
+Si acquisiscono gli spettri energetici variando lo spessore di materiale attraversato. Si misurano i conteggi di picco, posizionando un cursore sul picco e i conteggi di area posizionando due cursori nei punti di FWMH.
+Le misure sono riassunte in Tab.(\ref{count}).
+
+
+\begin{table}[]
+\centering
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{Senza campioni}                                                                 \\ \hline
+                                     & x {[}cm{]} & conteggi picco {[}\#{]} & conteggi area {[}\#{]} \\ \hline
+                                     & 0          & 1091                    & 38384                  \\ \hline
+\multicolumn{4}{|c|}{\textbf{Allumino}}                                                                       \\ \hline
+Campioni                             & x {[}cm{]} & conteggi picco {[}\#{]} & conteggi area {[}\#{]} \\ \hline
+$A_a$                                &   $1.002 \pm 0.005$         & 885                     & 33261                  \\ \hline
+$A_a+B_a$                            &   $2.004 \pm 0.007$          & 731                     & 27070                  \\ \hline
+$A_a+B_a+C_a$                        &   $2.888 \pm 0.009$          & 663                     & 22142                  \\ \hline
+$A_a+B_a+C_a+D_a$                    &   $3.89 \pm 0.01$          & 558                     & 20377                  \\ \hline
+\multicolumn{4}{|c|}{\textbf{Piombo}}                                                                         \\ \hline
+Campioni                             & x {[}cm{]} & conteggi picco {[}\#{]} & conteggi area {[}\#{]} \\ \hline
+$A_p$                                &     $0.20 \pm 0.01$       & 873                     & 32001                  \\ \hline
+$A_p+B_p$                            &     $0.41 \pm 0.01$        & 734                     & 24973                  \\ \hline
+$A_p+B_p+C_p$                        &     $0.62 \pm 0.02$       & 598                     & 20606                  \\ \hline
+$A_p+B_p+C_p+D_p$                    &     $0.84 \pm 0.02$        & 450                     & 16079                  \\ \hline
+$A_p+B_p+C_p+D_p+E_p$                &     $1.05 \pm 0.02$        & 393                     & 13151                  \\ \hline
+$A_p+B_p+C_p+D_p+E_p+F_p$            &     $1.33 \pm 0.02$        & 286                     & 10567                  \\ \hline
+$A_p+B_p+C_p+D_p+E_p+F_p+G_p$        &     $1.54 \pm 0.03$        & 234                     & 8739                   \\ \hline
+\end{tabular}
+\caption{Misure ricavate dall'MCA. L'errore sui conteggi è Poissoniano (non indicato). L'errore dei singoli spessori è propagato sulla somma}
+\label{count}
+\end{table}
+
+
+
+Il calcolo dei Fit esponenziali è riportato in Fig.(\ref{fit}).
+
+
+\begin{figure}[h]
+ \centering
+ \subfigure[Alluminio (conteggi picco)]
+   {\includegraphics[scale=0.66]{immagini/Al_picco.pdf}}
+ \subfigure[Alluminio (conteggi area)]
+   {\includegraphics[scale=0.66]{immagini/Al_Area.pdf}}
+  \subfigure[Piombo (conteggi picco)]
+   {\includegraphics[scale=0.66]{immagini/Pb_picco.pdf}}
+  \subfigure[Piombo (conteggi somma)]
+   {\includegraphics[scale=0.66]{immagini/Pb_area.pdf}}
+   \caption{Fit esponenziali con stima dei parametri e valore di $\chi ^2$}
+   \label{fit}
+ \end{figure}
+
+I calcoli di Fit mostrano comportamenti analoghi per Pb e Al: con i conteggi di picco il valore di $\chi ^2$ fa concludere che l'ipotesi di andamento esponenziale non ha motivo di essere rigettata con un livello di significatività del $5 \%$.
+I valori ottenuti e lo Z-test con il valore atteso sono:
+
+\begin{gather}
+\mathbf{Al} \qquad \rightarrow \qquad \mu = 0.171 \pm 0.012 \; [cm^{-1}] \qquad \rightarrow \qquad Z=\frac{|0.171-0.2026|}{0.012}=2.6 \\ 
+\mathbf{Pb} \qquad \rightarrow \qquad \mu = 1.00 \pm 0.03 \; [cm^{-1}] \qquad \rightarrow \qquad Z=\frac{|1.00-1.288|}{0.03}=9.6
+\label{ris}
+\end{gather}
+
+Il coefficiente di attenuazione ottenuto differisce da quello teorico di un $15 \% $ per l'Alluminio e del $20 \% $ per il Piombo.
+A rigore il test-Z (effettuato con errore nullo sul vaore atteso) ci dice che i due valori non sono compatibili (l.s. $5\%$).
+E' importante osservare che anche aumentando ulteriormente l'errore sull'ascissa $x$ il risultato per $\mu$ non cambia significativamente.
+Analogamente anche si assume l'errore a posteriori $\sigma_{post}= \sqrt{\chi_{rid}} \cdot \sigma$ non si ottiene un risultato migliore.
+
+Nei Fit che usano i conteggi di area i risultati per $\mu$ variano di poco e in questo caso l'ipotesi di andamento esponenziale va sicuramente rigettata (valore di $\chi ^2$ alto a causa dell'errore molto piccolo $ \sigma_{ poisson} ^{rel} \approx \frac{1}{\sqrt{n}}$).
+
+
+\end{document}
