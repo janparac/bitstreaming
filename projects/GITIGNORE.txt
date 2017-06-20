@@ -19,6 +19,7 @@ bd
 
 
 ###### excluding all files except one 
+###### (referring the current directory where the .gitignore file lay, doesn't need ./ but just nothing)
 !*.runs
 *.runs/*
 !*.runs/impl_1
