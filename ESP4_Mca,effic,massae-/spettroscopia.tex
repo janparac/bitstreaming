@@ -1,0 +1,436 @@
+\documentclass[12pt,a4paper,openright,twoside]{article}
+
+\usepackage[italian]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8x]{inputenc}
+%\usepackage[applemac]{inputenc}
+
+\usepackage[]{hyperref} %collegamenti ipertestuali
+\usepackage{xcolor} 
+\hypersetup{ %personalizzazione collegamenti ipertestuali
+    colorlinks = false,
+    linkbordercolor = {yellow},
+}
+
+\usepackage[centertags]{amsmath}
+\numberwithin{equation}{section} %numerare le formula fino alla sezione (scrivere SUBSECTION per arrivare alla sottosezione)
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amstext}
+\usepackage{enumitem}%per gli elenchi numerati romani
+\usepackage{multirow}%per tabelle con righe unite
+\usepackage{colortbl}
+\usepackage[version=2]{mhchem} %nuclidi
+\usepackage{footnote} %per fare note in tabella
+\makesavenoteenv{table} %per fare note in tabella
+\usepackage[T1]{fontenc} % mette le due virgolette uguali e dritte (forse)
+
+\usepackage[pdftex]{graphicx}%per le immagini
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{newlfont}
+\usepackage[small,bf]{caption}
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{units}%per il segno di frazione figo
+
+\usepackage{subfigure}%matrici di immagini
+\usepackage{wrapfig}%per le immaggine nel a lato testo
+\usepackage[percent]{overpic}%per mettere il testo davanti alle figure
+
+%PAGE formatting
+\setlength{\hoffset}{-25,4mm}
+\setlength{\captionmargin}{10pt}
+\evensidemargin=17mm
+\oddsidemargin=17mm
+\linespread{1}
+\textwidth=175mm
+\textheight=230mm
+
+\hyphenation{}
+
+
+\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\fancyhf{}
+\fancypagestyle{plain}{\fancyhead{}}
+\fancyhead[LE, RO] {\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addto\captionsitalian{\renewcommand{\chaptername}{}}
+
+\title{\textbf{ Taratura dell'MCA per Spettroscopia-$\gamma$ con rivelatore \textit{NaI(Tl)}}}
+\date{\small{ Turno di misura\\
+	22/2/2017}}
+\author{Gruppo 3: \\  
+		Stefano Paracchino 
+		}
+
+
+
+\begin{document}
+\maketitle
+    
+
+%--------------------INDICE---------------------------------------------------------------------
+\tableofcontents                        %crea l'indice
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%non numera l'ultima pagina sinistra
+
+
+
+
+
+%--------------------------------------------------------------------------------------------------------
+\pagebreak
+
+\pagenumbering{arabic}      
+
+\section{Scopo dell'esperienza}
+L'obiettivo dell'esperienza è caratterizzare il sistema di acquisizione per spettroscopia-$\gamma$ tramite la taratura dell' \textit{MCA} e lo studio della risoluzione del rivelatore \textit{NaI(Tl)}. 
+Con la taratura ottenuta si potrà quindi analizzare lo spettro di energia prodotto da un isotopo radioattivo.
+Da quest'ultimo si procederà al riconoscimento di una sorgente radioattiva ignota e alla misura della massa dell'elettrone a diverse velocità che conduce alla scoperta sperimentale della \textit{Relatività Speciale}.
+
+\section{Richiami teorici}
+\subsection{Sorgenti radioattive}
+Il decadimento-$\gamma$ si verifica in seguito alla trasmutazione di un nucleo da uno stato eccitato ad uno stato di energia inferiore senza cambiamento della specie chimica.
+La conservazione dell'energia prevede l'emissione di un fotone di energia pari alla differenza di energia dei due stati quantistici. Le energie considerate sono quindi quantizzate e il raggio-$\gamma$ ad alta energia (in questa esperienza $\approx 100 keV \div 1.5 MeV $) che viene emesso, sarà l' "impronta digitale" del corrispondente isotopo radioattivo.
+
+Di solito gli stati eccitati che generano decadimenti-$\gamma$, derivano a loro volta in cascata da altri decadimenti ($\alpha, \beta , EC ,...$). Inoltre uno stato eccitato può passare al ground-state attraverso uno o più stati metastabili generando contemporaneamente ($\approx 10^{-1} ps$) più raggi $\gamma$ caratteristici. Infine va ricordato che quasi sempre gli isotopi presentano diversi decadimenti in competizione fra loro (detti multimodali); nei casi trattati in questa esperienza l'isotopo ha sempre un modo di decadimento nettamente più probabile ($>90 \% $) e quindi gli altri modi verranno ignorati dato lo scopo prefissato.
+I decadimenti radioattivi avvengono con un certa frequenza temporale detta \textbf{attività} tipica della sorgente e variabile nel tempo. Non è rilevante ai fini di questa esperienza misurare le attività delle sorgenti, basta tenere conto del fatto che sono dell'ordine del $KBq$.
+I dati rilevanti delle sorgenti disponibili in laboratorio  sono riassunti in Tabella (\ref{nuclidi}) e saranno i dati noti con cui calibrare l'MCA.
+
+\begin{table}[]
+
+\renewcommand\arraystretch{1.2}
+\centering 
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Nome & $t_{\frac{1}{2}}$ [y] & Decadimenti  & Progenie & Picchi principali [MeV]\footnote{i valori sono assunti senza errore}& C-Edge \footnote{Sono qui riportate solo le spalle Compton (Compton Edge) "visibili", come spiegato in App.\ref{a}} [MeV]\\ \hline
+      $\ce{^{60}_{27} \mathbf{Co}}$  & 5.62   &    $\beta^{-} \rightarrow \gamma_1 \rightarrow \gamma_2 $         &     $\ce{^{60}_{28}Ni}$     &  1.173, 1.332  & 0.963 ($\gamma =$ 1.173) \\ \hline
+      
+       $\ce{^{22}_{11}\mathbf{Na}}$    &   2.62       &    $\beta^{+} \rightarrow \gamma    $    &    $ \ce{^{22}_{10}Ne}$     &         0.511 \footnote{Questo fotone non è un decadimento-$\gamma$ del $\ce{^{22}Na}$ bensì deriva dall'annichilazione del positrone del decadimento $\beta^{+} $ con un elettrone della sorgente stessa. }   , 1.275    & 0.339, 1.061 \\ \hline
+       $\ce{^{137}_{55}\mathbf{Cs}}$   &     30    &    $\beta^{-} \rightarrow \gamma    $         &    $\ce{^{137}_{56}Ba}$      &     0.662        &  0.477    \\ \hline
+       $\ce{^{133}_{56}\mathbf{Ba}}$    &     10.5    &       $EC \rightarrow \gamma_1 ...\rightarrow \gamma_n   $   &    $\ce{^{133}_{55}Cs}$      &         0.081, 0.297, 0.356, 0.382    &  - \\ \hline
+       
+\end{tabular}
+     \caption{Nuclidi impiegati nell'esperienza}
+     \label{nuclidi}
+\end{table}
+
+
+\subsection{Ricavare la Relatività Speciale dallo Scattering Compton}
+Se oltre alle leggi di conservazione di energia e quantità di moto si assume come noto lo scattering Compton "classico" (il quale richiede a sua volta si accettare la relazione massa-radiazione $E=h \nu$) si può giungere alla \textit{scoperta sperimentale} del concetto di massa relativistica, senza dover sviluppare la teoria della Relatività dai principi primi.
+
+Come viene spiegato nel paragrafo \ref{sper}.\ref{Compt} con la strumentazione di questo esperimento è possibile misurare l'energia della \textit{spalla Compton} e quindi l'energia cinetica $T_e$ che assume l'elettrone nel caso di back-scattering con il fotone tramite la formula (\ref{Te}).
+Ci si aspetta usando la meccanica classica di poter quindi calcolare la massa dell'elettrone invertendo la formula dell'energia cinetica $T_e=\frac{p_{e} ^2}{2 m_e}$. La quantità di moto si ricava imponendo le leggi di conservazione allo scattering Compton ottenendo $p_e c=2E_{\gamma}-T_e$.
+Mettendo la seconda nella prima si ottiene l'espressione per $m_e$:
+
+\begin{equation} \label{massa}
+m_e c^2=\frac{p_{e} ^2 c^2}{2 T_e} = \frac{(2E_{ \gamma }-T_e)^2}{2T_e}
+\end{equation}
+
+L'ultimo termine non va visto come una funzione, ma appunto come una "espressione sperimentale". Nel paragrafo \ref{rel} si graficano i valori di $m_e c^2$ ottenuti introducendo nella \ref{massa} le misure sperimentali di $E_{\gamma}$ e dei corrispondenti $T_e$.
+
+La meccanica classica prevede un andamento costante di $m_e c^2$ al variare di $T_e$ ; invece apparirà (forse!) un andamento lineare con intercetta di $m_0 c^2 =0.511 MeV$ e pendenza $k=1/2$. Questi saranno i coefficienti che si ottengono \underline{sperimentalmente} dal Fit lineare (con relativa incertezza). Se si sostituisce l'espressione della retta nel membro a sinistra della (\ref{massa}) si ottiene $p^2 c^2 = 2 T_{e} m_0 c^2 + T_{e} ^2 $ e completando il quadrato:
+
+\begin{equation}
+p^2 c^2 + (m_0 c^2 )^2 = (T + m_0 c^2)^2 = E^2
+\end{equation}
+ che è la nota relazione relativista fra energia e momento.
+\section{Apparato sperimentale} \label{sper}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.5,angle=-90]{immagini/Strum_FLAT.pdf}
+\caption{Apparato Strumentale}
+\label{strum}
+\end{figure}
+
+
+In riferimento alla figura \ref{strum} si possono vedere le seguenti componenti della strumentazione:
+\begin{enumerate}
+\item \underline{Rivelatore NaI(Tl) :} è uno scintillatore inorganico molto diffuso nella spettroscopia-$\gamma$ grazie alla elevata efficienza luminosa (risoluzione di picchi deboli) e alla elevata probabilità di effetto fotoelettrico (fenomeno necessario per la formazione dello spettro caratteristico) dovuta all'alto numero atomico Z ($\sigma_{p.e.} \approx Z^5$)
+
+ Si dispone di un cilindro 3"x 3"  contenuto in guscio protettivo di Al. La sorgente radioattiva può essere posta a pochi centimetri di fronte al rivelatore su apposito portacampione. Il tutto è contenuto dentro uno schermo al Piombo.
+
+
+ Il gamma incidente scambia energia con un elettrone del cristallo. Grazie alla particolare struttura a bande e alle trappole introdotte dal drogante, l'energia dell' elettrone scatterato verrà tradotta in un numero proporzionale di fotoni $N_{ph}$ (efficienza luminosa $QE \approx 1 \frac{ph}{100eV} = 4 \cdot 10^4 \frac{ph}{MeV}  \quad @ 300 K$ , $\lambda_ {max} = 410 nm $) emessi con tipica risposta esponenziale decrescente, la cui costante decadimento è $\tau_{s} \approx 0.2 \mu s$. In prima approssimazione il rate $L(t)$ di fotoni emessi sarà:
+\begin{equation}
+L(t)=\frac{N_{ph}}{\tau_{s}}e^{- \frac{t}{\tau_{s}}}
+\end{equation}
+Il cristallo è trasparente ai fotoni (di bassa energia) che esso stesso genera; il sottile rivestimento Alluminio, oltre a proteggere il NaI(Tl), è trasparente ai Gamma e riflettente ai fotoni visibili.h
+In base a quanto detto sopra, lo scintillatore non "vede" i raggi-$\gamma$ bensì "vede" solo gli elettroni scatterati dall'urto con essi.
+Questo punto è fondamentale per interpretare i segnali prodotti dallo scintillatore, ovvero a sua volta il grafico prodotto dall' MCA.
+
+ I processi di interazione radiazione materia di interesse in questa esperienza sono:
+\begin{enumerate}
+\item \underline{Effetto Fotoelettrico (PE):} il fotone ($h \nu \approx MeV$) cede totalmente la sua energia ad un elettrone legato della shell K o L  ($L_e \approx keV$). Quest'ultimo viene emesso con energia $E_e=h \nu - L_e \approx h \nu$. Ci si aspetta quindi un andamento deltiforme detto \textbf{fotopicco} del grafico centrato nel valore $E_e$. Ciò che si osserva è un aspetto di tipo gaussiano. Questo è dovuto alla fluttuazione statistica del numero $N_{ph}$ corrispondenti ad un determinato elettrone scatterato (oltre che alle fluttuazioni delle risposte della catena elettronica seguente). Il rapporto fra la FWMH e l'energia del fotopicco si chiama \textbf{risoluzione} del rivelatore ed è indice delle prestazione dello strumento e della capacità di risolvere picchi vicini fra loro. Se si pensa a un valore di picco come allo "scintillatore che conta fotoni" allora seguirà una distribuzione poissoniana e la risoluzione si può riscrivere come $\propto \frac{\sqrt{N}}{N} \propto \frac{1}{\sqrt{N}} \propto \frac{1}{\sqrt{E}} $ quindi avrà un andamento lentamente decrescente al crescere dell'energia.
+
+\item \label{Compt} \underline{Effetto Compton :} urto elastico relativistico tra fotone ed elettrone "libero", assunto a riposo. L'energia $T_e$ dell'elettrone dopo l'urto dipende dall'angolo $\theta$ di scattering del fotone. Si ha:
+\begin{equation}\label{back}
+T_e=h \nu - h \nu ' = h \nu - \frac{h \nu }{1+(1-cos \theta )\frac{h \nu}{m_e c^2}}
+\end{equation}
+Qui a differenza dell'effetto PE si ha un range continuo di energie "tradotte in scintille" da un valore minimo $T_{e} ^{min}$ ad un valore massimo  $T_{e} ^{max}$ al variare dell'angolo $\theta $:
+\begin{gather}
+\theta=0° \qquad \text{fotone in avanti}\qquad \rightarrow \qquad T_{e} ^{min}=0\\
+\theta=180° \qquad \textbf{backscattering} \qquad \rightarrow \qquad T_{e} ^{max}=h \nu \left(1- \frac{1}{1+2 \frac{h \nu}{m_e c^2}} \right) 
+\label{Te}
+\end{gather}
+Se in prima approssimazione si assume che lo scattering Compton sia equiprobabile per ogni $\theta$ ci si aspetta una distribuzione di eventi con un andamento simil rettangolare che parte da $E=0$ e termina in $E=T_{e} ^{max}$ formando uno spigolo detto comunemente \textbf{spalla Compton}.
+\item \underline{Produzione di Coppie :} interazione fotone-nucleo che porta alla creazione di una coppia elettrone-positrone e quindi di un "gamma interno" da $0,511 MeV$ in seguito all'annichilazione. Questo processo non è osservato nella presente esperienza come si deduce da Fig.\ref{sezione}.
+
+\end{enumerate}
+
+I processi (a), (b), (c) sono fra loro concorrenti, la rispettiva sezione d'urto è fortemente dipendente dall'energia del raggio-$\gamma$ incidente e è riportata in  Fig. \ref{sezione}.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.5]{immagini/section.jpg}
+\caption{Sezione d'urto raggi$\gamma$-$e^-$ per NaI(Tl)}
+\label{sezione}
+\end{figure}
+
+L'intervallo da tenere in considerazione per la seguente esperienza è $10^5 \div 10^6 keV$. Qui si nota che la produzione di coppie è praticamente nulla. L'effetto Compton ha in generale maggiore probabilità dell'effetto PE. Tuttavia si osserva sperimentalmente un fotopicco molto più alto del \textit{rettangolo Compton}, questo è dovuto al fatto che il fotone uscente da un urto compton può di nuovo fare nell'istante successivo un nuovo urto Compton : i fotoni visibili verranno "letti contemporaneamente" e "confusi" con un evento PE.
+Un fenomeno analogo accade anche per le varie combinazioni di picchi (e.g. il doppietto del $\ce{^{60}_{}Co}$) dando origine al cosiddetto \textbf{picco-somma}.
+
+\item \label{PMT}\underline{Tubo fotomoltiplicatore (PMT) :} il tubo Silena mod.206 è collegato allo scintillatore in modo tale da tradurre i fotoni emessi in segnale elettrico. Questo è realizzato con la catena di dinodi, alimentati con il partitore dell'alta tensione $HV$ (cfr. Par \ref{HV}). Il catodo di questa catena è posto immediatamente dopo la finestra ottica del NaI(Tl)ed è detto fotocatodo. Esso ha un lavoro di estrazione opportuno affinchè il fotone visibile produca l'emissione di un elettrone (efficienza $E_{PC} \approx 25 \% $). Quest'ultimo entrando nella catena di dinodi raggiungerà un'amplificazione finale di $K_{PM} = 10^6 \div 10^8 $. Se i vari stadi non distorcono il segnale luminoso dello scintillatore, la corrente generata sarà 
+\begin{equation}
+I(t)=\frac{Q_{PMT}}{\tau_{s}}e^{- \frac{t}{\tau_{s}}}
+\end{equation}
+dove $Q_{PMT}=N_{ph}\cdot f \cdot E_{PC} \cdot K_{PM} \cdot q$ dove $q$ è la carica elettronica e $f$ la frazione dei fotoni prodotti che effettivamente giungono sul fotocatodo in seguito a riflessioni totali (tipicamente $f \approx 0.2$).
+
+ Ad esempio per un gamma da 1MeV si ha:
+ $Q_{PMT} \approx 4 \cdot 10^4 \cdot 0.2 \cdot 0.25 \cdot 10^6 \cdot 1.6 \cdot 10^{-19} \approx 10^{-10} \; [C]$
+
+Il segnale verrà letto sulla caduta di tensione circuito RC-parallelo dell'anodo. Se si suppone una costante di tempo $RC=\theta << \tau_{s}$ (condizione di derivazione) si dimostra che il segnale avrà forma:
+\begin{equation}
+V(t)=\frac{Q_{PMT}}{C} \frac{\theta}{\tau_{s}} e^{- \frac{t}{\tau_{s}}}
+\end{equation}
+Con $R=50 \Omega$, $C=20 pF$ ci si aspetta un segnale dell'ordine del $(10^{-10} \cdot 50) /(2 \cdot 10^{-7}) \approx $\textbf{mV} di ampiezza e dell'ordine del \textbf{ us} di durata.
+
+\item \underline{Alimentatore:} modulo NHQ-203M fornisce l'alta tensione al PMT.
+\item \underline{Amplificatore:} installato sul Rack,si trova il modulo di amplificazione ORTEC-485, il quale inverte il segnale in ingresso e lo amplifica di un fattore regolabile tramite le due manopole  \textit{coarse gain} e \textit{fine gain}. 
+
+\item \underline{Contatore:} nel medesimo crate dell'amplificatore si trova il contatore ORTEC SCALER-484, il quale conta gli impulsi in ingresso che superano una determinata \textit{threshold} settata da manopola, nella finestra temporale impostata. Il valore di conteggio sarà ovviamente proporzionale all'attività della sorgente.
+
+\item \underline{MCA:} il Multi Channel Analizer (modello Pocket MCA della Amptek) è l'elettronica fondamentale per produrre un grafico di \textit{conteggi vs energia}. Esso è un ADC che divide un range di tensione $V$ in $(2^n)$ canali di ampiezza $\frac{V}{2^n}$ (con valori discreti da $0$ a $\left( V-\frac{V}{2^n} \right)$), con $n$ scelto dall'operatore.  Il modulo che accetta in ingresso il cavo BNC del segnale (amplificato) con tensione massima di $10V$ e in uscita è collegato al PC con software di controllo a cui trasmette il valore binario ottenuto.
+
+\item \underline{Computer:} il modulo MCA in uscita presenta il cavo VGA con il quale "dice" al PC in quale canale "cade" 
+ il segnale appena rilevato. Il software di controllo della Amptek installato incrementa i contatori dei singoli canali e quindi permette di visualizzare on-line la costruzione online del grafico \textit{conteggi vs energia}.
+
+Dispone inoltre di funzioni integrate per estrapolare informazioni dal grafico: si può selezionare un intervallo delle ascisse detto "Range of Interest" (ROI), nel quale il software calcola con formule statistiche interne la posizione del picco, FWMH, conteggi totali, rate,...
+I dati possono venire esportati per essere elaborati
+
+\item \underline{Oscilloscopio:} Oscilloscopio analogico Tektronix $BP 100 MHz$ utilizzato per il controllo del segnale in uscita dal PMT. La lettura del segnale è effettuata con opportuno tappo a T da $50 \Omega$ per accoppiare l'impedenza caratteristica del cavo coassiale impiegato che è comunemente di $50 \Omega$ a sua volta.
+
+\end{enumerate}
+\section{Procedura sperimentale, misure ed analisi dati}
+
+
+\begin{wrapfigure}{l}{0.38\textwidth}
+\begin{center}
+\includegraphics[width=0.38\textwidth]{immagini/DSC_0018.JPG}
+\caption{Segnale in uscita dal PMT}
+\label{oscillo}
+\end{center}
+\end{wrapfigure}
+
+Come prima operazione si verifica qualitativamente il funzionamento della strumentazione, ponendo la sorgente di $\ce{^{137}_{}Cs}$ sul portacampioni di fronte allo scintillatore, alimentando il PMT a una tensione tipica e visualizzando il segnale in uscita dal PMT all'oscilloscopio. Le scale di tempi e tensione sono settate in accordo ai valori ottenuti nel Par.(\ref{PMT}).
+Il segnale visualizzato è riportato in Fig.(\ref{oscillo}). La forma del segnale ha il tipico andamento esponenziale che ci si aspettava.
+Si notano contemporaneamente diversi segnali, con ampiezza diversa. Il più alto sarà quindi dovuto al fotopicco mentre i più bassi sono da ricondurre all'effetto Compton.
+\subsection{Operazioni preliminari} \label{HV}
+ \underline{ 1) HV PMT:} prima di partire con le misure, va scelta la migliore tensione di alimentazione HV del fototubo. Se è troppo bassa il PMT non riesce a formare il segnale, se è troppo alta si aumenta troppo il rumore (e si può danneggiare lo strumento). Ci si aspetta che i conteggi in funzione di HV seguano una S-curve, la tensione ideale sarà quindi all'inizio della parte piatta alta della curva, detta \textit{ginocchio}. Si porta l'uscita del PMT all'amplificatore su cui si setta un guadagno di qualche Volt. L'uscita amplificata è quindi portata al contatore, settato su una threshold di $0.4V$ e su tempo di $2'$. Si contano i segnali al variare di HV, si ottiene il grafico in Fig.(\ref{counts}). Viene anche eseguito un Fit con una S-curve (Error Function), tuttavia è da rigettare. Si sceglie "ad occhio" la tensione \textit{HV=1003V} come posizione del ginocchio e quindi come tensione operativa dell'esperimento.
+ 
+ \begin{figure}[hbtp]
+ \centering
+ \includegraphics[scale=0.75]{immagini/HV.pdf}
+ \caption{Curva per individuare la tensione operativa}
+ \label{counts}
+ \end{figure}
+ 
+ \underline{ 2) Amplificazione:} una volta scelta la tensione di alimentazione, si deve settare un opportuno guadagno dell'amplificatore. Guardando la Tab.(\ref{nuclidi}) si vede che il $\ce{^{60}_{}Co}$ è l'elemento che produce gamma più energetici. Pertanto il segnale di fotopicco del $\ce{^{60}_{}Co}$ dovrà avere la tensione più alta accettata dall'MCA. Quest'ultimo accetta un valore massimo di $10V$ quindi servendosi dell'oscilloscopio si setta un'amplificazione che produca un fotopicco del $\ce{^{60}_{}Co}$ di $9V$ \footnote{Non si è preso nota dei valori esatti di amplificazione di coarse e fine ma corrisponderanno ad un fattore di Gain di circa 3000}.
+
+\subsection{Taratura MCA}
+L'ultimo operazione prima dell'acquisizione degli spettri è la scelta del numero $n$ di bit di risoluzione dell'MCA. Se questo è grande lo spettro sarà più dettagliato e l'errore sull'energia più piccolo ma verrà richiesto maggior tempo di acquisizione; comportamento speculare per $n$ piccolo. Con alcuni brevi test osservando lo spettro del Cesio si decide che il miglior compromesso è $n=9$ quindi $512$ canali per un tempo di acquisizione di $5'$. Inoltre si decide di eliminare i conteggi presenti nel canali $<48$ (cfr. App.(\ref{a})).
+
+Gli spettri ottenuti sono riportati e commentati in App(\ref{a}).
+Sono qui riportati per brevità nel grafico complessivo di Fig.(\ref{tot}): data la differenza di attività fra le sorgenti impiegate è necessario un grafico logaritmico (questo è anche più adatto per la determinazione della spalla Compton come descritto nel Par.(\ref{rel}).
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.6\textwidth , angle=-90]{immagini/LogPlot_FLAT.pdf}
+\caption{Grafico complessivo degli spettri delle sorgenti e relativi valori tabulati delle energia di fotopicchi e spalla Compton. I valori sottolineati sono i fotopicchi impiegati nella retta di taratura. I valori cerchiati sono i valori di spalla Compton impiegati nel Par.(\ref{rel}). Non sono stati acquisiti i conteggi per $ch<48 \approx 100 keV$.}
+\label{tot}
+\end{figure}
+
+\begin{figure}[htbp]
+\hspace{-10mm}%
+\begin{minipage}[c]{.45\textwidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+                    & Energia {[}MeV{]} & Canale{[}\#{]} & FWMH {[}\#{]}\\ \hline
+Ba                  & 0.356             &      127$\pm$1 & 9\\ \hline
+\multirow{2}{*}{Na} & 0.511             &     179$\pm$1 & 14\\ \cline{2-4}
+                    & 1.275             &     441$\pm$1 & 21\\ \hline
+Ce                  & 0.662             &   229$\pm$1  & 16 \\ \hline
+\multirow{2}{*}{Co} & 1.173             &   395$\pm$1   & 20\\ \cline{2-4} 
+                    & 1.332             &     450$\pm$1  & 23 \\ \hline
+\end{tabular}
+\caption{Misure ricavate usando la funzione "ROI" del software }
+\label{tarval}
+\end{minipage}%
+\hspace{13mm}%
+\begin{minipage}[c]{0.45\textwidth}
+%\centering\setlength{\captionmargin}{0pt}%
+\includegraphics[scale=0.85]{immagini/taratura.pdf}
+\caption{Retta di taratura dell'MCA $ \mathbf{@} \; HV=1003V\; e \; Gain=\ce{^{60}_{}Co} \leftrightarrow 9V$. Assunto errore a posteriori.} 
+\label{tarret}
+\end{minipage}
+\end{figure}
+
+Per calibrare l'MCA si deve far corrispondere ad ogni valore di energia del fotopicco tabulato in Tab.(\ref{nuclidi}), il valore di canale. Quest'ultimo sarà chiaramente il centroide del picco (asse di simmetria della Gaussiana o Lorentziana che approssima il picco) ed è ricavato usando la funzione \textit{ROI} integrata nel software. I valori ottenuti sono riportati in Tab.(\ref{tarval}) e la relativa retta di taratura ottenuta con Fit lineare è mostrata in Fig(\ref{tarret}). Per il $\ce{^{133}_{}Ba}$ si è considerato il solo picco più distinto, in quanto per gli altri non avevano la tipica forma piccata, causa sovrapposizione con altro segnale e quindi il valore ottenuto con la \textit{ROI} non sarebbe stato affidabile (inoltre sono valori vicini fra loro quindi non particolarmente utili al fine di un calcolo di Fit).
+
+
+
+
+
+Si ottiene la retta di taratura:
+
+\begin{gather} \label{eqtar}
+\boxed{ \mathbf{E} [MeV]=\mathbf{-0.022} (\pm 0.013) [MeV]+\mathbf{0.00297} (\pm 0.00004) \left[\frac{MeV}{ch}\right] \cdot \mathbf{ch}} \\
+\mathbf{@} \; HV = 1003V\; , \; Gain=\ce{^{60}_{}Co} \leftrightarrow 9V \\ \label{eqtar2}
+\sigma_E (ch)= \sqrt{\sigma_a^2 + (ch \cdot \sigma_b )^2 + (b\cdot \sigma_{ch})^2 + 2 \cdot b \cdot ch \cdot C_{a,b}} \approx \sqrt{\sigma_a^2 + (ch \cdot \sigma_b )^2 + (b\cdot \sigma_{ch})^2} \\\label{eqtar3}
+\text{per un fotopicco} \rightarrow  \sigma_{ch} = 1 \rightarrow \sigma_E \approx 20keV \rightarrow  \frac{\sigma_E}{E} \approx 2 \div 4 \%
+\end{gather}
+
+Nella Eq.(\ref{eqtar}) l'intercetta negativa è dovuta al \textit{piedistallo} dell'ADC.
+Nella Eq.(\ref{eqtar2}) la covarianza ottenuta ha ordine di grandezza $10^{-7}$ e quindi può essere trascurata.
+Il software di acquisizione fornisce valori dei picchi con incertezza sempre $<1ch$, questo motiva l'approssimazione della Eq.(\ref{eqtar3}): l'incertezza sull'energia è variabile con il valore del canale e l' Eq.(\ref{eqtar3}) vuole solo sottolineare qual è l'ordine di grandezza dell'errore della strumentazione nella determinazione del singolo picco. Questo non include un eventuale errore sistematico.
+
+Si può testare la bontà della retta di calibrazione, confrontando il valore che si ottiene ad esempio per una spalla Compton (cfr. metodo Par.(\ref{rel})) e confrontarlo con il valore di riferimento di Tab (\ref{nuclidi}). Per il $\ce{^{137}_{}Cs}$ si ha un valore di $ch=155 \pm 6$. Applicando Eq.(\ref{eqtar}) ed Eq.(\ref{eqtar2} si ottiene $E=0.48 \pm 0.02 MeV$ compatibile con quello atteso $E=477 MeV$.
+
+Si può quindi procedere ad impiegare la calibrazione per la determinazione dei picchi di una sorgente ignota.
+
+\pagebreak
+
+\subsection{Analisi di una sorgente ignota}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.6,angle=-90]{immagini/ignota_FLAT.pdf}
+\caption{Spettro della sorgente ignota. I valori cerchiati corrispondono ai picchi tipici di \ce{^{152}_{}Eu}}
+\label{ignota}
+\end{figure}
+
+
+Una volta trovato il canale associato al picco (ad esempio con la funzione \textit{Find Peak} di \textit{Mathematica}) si applica la formula \ref{eqtar} per trovare il corrispondente valore di energia. Si riportano i valori per comodità in Fig.(\ref{ignota}) dove è omessa l'incertezza (circa costante a $0.02 \; MeV$).
+
+Per trovare l'isotopo in questione si può usare il comodo software \textit{Radiation Search} del sito "The Lund/LBNL Nuclear Data Search" reperibile al seguente indirizzo : 
+
+http://nucleardata.nuclear.lu.se/toi/radSearch.asp. 
+
+E' ovvio considerare come valore iniziale di ricerca il picco più alto, stimato a $0.11 MeV$.
+
+Impostando quindi come parametri di ricerca $E_{\gamma}= 120 \pm 20 \; keV$, e un tempo di decadimento ragionevole per sorgenti "didattiche" $t_{\frac{1}{2}}=10 \div 100 \; y$ si vede nella lista di possibili candidati che l'elemento con probabilità\footnote{La probabilità di decadimento sarà proporzionale all'intensità del picco e quindi all'attività riferita a quel picco. Si tratta solitamente di decadimento in cascata quindi non concorrenti, pertanto $\Sigma prob \neq 1$ } di decadimento decisamente maggiore è \textbf{\ce{^{152}_{}Eu}} che ha un picco gamma di $E_{\gamma}=121 keV$ con probabilità $28 \%$.
+Si può quindi accedere al database di \ce{^{152}_{}Eu} e in effetti si verifica che i primi 5 valori più intensi di picchi corrispondono a quelli dello spettro misurato e hanno altezza proporzionale all'intensità indicata (valori cerchiati in Fig.(\ref{ignota})).
+
+Per quanto riguarda i rimanenti picchi i valori di $E_{\gamma}=70 keV$ e $E_{\gamma}=80 keV$ possono essere ricondotti sempre usando \textit{Radiation Search} a una fonte di \ce{^{44}_{}Ti} o a una somma di questi con il tipico $K_{\alpha}=75keV$ del Pb.
+Il picco a $E_{\gamma}=30 keV$ dovrebbe essere dovuto al backscattering del fotone di energia $E_{\gamma}=110 keV$, infatti applicando la \ref{back} si ottiene $E_{110} ^{BS} \approx 33 keV$.
+I due picchi rimanenti sono picchi-somma.
+
+
+
+
+
+
+
+
+\subsection{Misura della risoluzione energetica del rivelatore}
+
+Con la funzione \textit{ROI} del software di acquisizione si ricavano i centroidi dei fotopicchi delle sorgenti e le corrispondenti FWMH (Tab.(Fig.(\ref{tarval}))).
+
+ Si vuole verificare se la risoluzione varia con l'energia con un andamento $\propto \frac{1}{\sqrt{E}} $. Il Fit mostrato in Fig.(\ref{risfig}) conferma questo andamento. Si può stimare quindi che la risoluzione del rivelatore NaI(Tl) si attesta a $6 \div 7 \% $ che è appunto un valore tipico per questo tipi di materiali.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.9]{immagini/risoluzione.pdf}
+\caption{Andamento della risoluzione del rivelatore}
+\label{risfig}
+\end{figure}
+
+\pagebreak
+
+\subsection{Misura della massa dell'elettrone e osservazione della Relatività Speciale} \label{rel}
+
+Per determinare il valore di canale della spalla Compton e relativo errore non si può chiaramente usare la funzione \textit{ROI}, si ricorre quindi ad un metodo "a mano": si misura sul grafico il punto $ch1$ di inizio della discesa della spalla e il punto $ch2$ di metà altezza della discesa.
+Il valore $C$ della  spalla Compton sarà il punto medio di $ch1$ e $ch2$ e l'errore associato sarà la semiampiezza $\frac{ch2-ch1}{2}$.
+Ricordando che la l'energia cinetica dell'elettrone si misura proprio tramite l'energia da esso rilasciata nello scintillatore, si procede a calcolare $T_e$ con relativi errori usando le Eq.(\ref{eqtar}).
+Si calcolano i corrispondenti valori di $m_e c^2$ usando la Eq.(\ref{massa}) e relativi errori con la formula di propagazione errori. 
+I risultati sono riassunti in Tab.(\ref{masstab}).
+
+\begin{table}[]
+\centering
+\renewcommand\arraystretch{1.2}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & $E_{\gamma} [MeV]$ & $ch1 [\#]$ & $ch2 [\#]$ & $C_{Comp} \pm \sigma_C [\#]$ & $T_e \pm \sigma_{T_e} [MeV]$ & $m_e c^2 \pm \sigma_{mc^2} [MeV]$   \\ \hline
+ $\ce{^{22}_{} \mathbf{Na}} (I)$& 0.511 &114  &130  & $122 \pm 8 $ & $ 0.34\pm 0.03$ &   $0.67 \pm 0.11$   \\ \hline
+ $\ce{^{137}_{} \mathbf{Cs}}$ & 0.662 & 158 & 171 & $164 \pm 6$  & $ 0.47\pm 0.02$ &  $0.78 \pm 0.08 $    \\ \hline
+  $\ce{^{60}_{} \mathbf{Co}}$& 1.173 & 311 & 339 & $325 \pm 14 $ & $ 0.95\pm 0.04$ &  $1.02 \pm 0.12 $    \\ \hline
+  $\ce{^{22}_{} \mathbf{Na}} (II)$& 1.275 & 349 & 376 & $362 \pm 13 $ & $ 1.06\pm 0.04 $ &   $ 1.05 \pm 0.11$   \\ \hline
+\end{tabular}
+\caption{Valori per la misura della massa dell'elettrone}
+\label{masstab}
+\end{table}
+
+Con i valori di Tab.(\ref{masstab}) si ottiene il Fit riportato in Fig.(\ref{massfit}). Il risultato ottenuto è:
+
+\begin{equation}
+\boxed{m_e c^2 = (0.52 \pm 0.12) + (0.51 \pm 0.17) \cdot T_e  \quad [MeV] }
+\end{equation}
+
+I valori ottenuti sono compatibili con quelli attesi. Tuttavia, la misura della massa a riposo dell'elettrone ha un errore del $20 \%$ che è piuttosto alto. Questo è dovuto all'indeterminazione sul canale della Spalla Compton che si propaga nel calcolo di $T_e$ e ancora si propaga nel calcolo di $m_e c^2$.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.8]{immagini/massa_elett.pdf}
+\caption{Fit lineare per la misura della della massa dell'elettrone}
+\label{massfit}
+\end{figure}
+
+
+\clearpage
+\appendix 
+\section{Spettri acquisiti} \label{a}
+ 
+ \begin{figure}[h]
+ \centering
+ \subfigure[Cesio-137]
+   {\includegraphics[scale=0.93]{immagini/Cs137.pdf}}
+ \subfigure[Cobalto-60]
+   {\includegraphics[scale=0.93]{immagini/Co60.pdf}}
+  \subfigure[Bario-133]
+   {\includegraphics[scale=0.92]{immagini/Ba133.pdf}}
+  \subfigure[Sodio-22]
+   {\includegraphics[scale=0.92]{immagini/Na22.pdf}}
+ \end{figure}
+ 
+Il software di acquisizione fornisce la lista di coppie $conteggi-canale$. I grafici qui riportati sono generati con \textit{Mathematica} usando la funzione \textit{Joined Point} per motivi estetici.
+
+I grafici hanno asse delle ordinate scalato con il valore massimo di fotopicco, dato che hanno attività molto diverse fra loro. I valori di conteggi e relativi rate non sono necessari ai fini della presente esperienza. Allo stesso modo non sono stati presi valori con $ch<48$ in quanto questi corrispondono a valori circa $ < 100 keV$, zona in cui ogni segnale è "sommerso" nel picco dovuto dai fotoni $K_{\alpha} \approx 75 keV$ di fluoerescenza dello schermo di Piombo, dovuto all'effetto fotoelettrico compiuto dai raggi-$\gamma$.
+
+Non è stato sottratto il rumore.
+
+Ad ogni picco fotoelettrico corrisponde una spalla Compton eccetto quando essa si trova sommmersa sotto altro segnale come nel Cobalto-60 e nel Bario-133.
+Negli spettri di Cobalto-60 e Cesio-137 è particolarmente distinto alle basse energie il picco di back-scattering dovuto al raggio-$\gamma$ che viene riflesso di $180°$ per scattering Compton con la schermatura di Piombo. Il valore del fotone di back-scattering si ricava dalla Eq.(\ref{back}).
+\end{document}
