@@ -108,7 +108,7 @@ I valori di $\mu_a$ sono tabulati per vari valori di energia del fotone. In ques
 \label{mu}
 \end{gather}
 
-I valori sono assunti senza errore.
+I valori sono assunti senza errore (in quanto l'incertezza non è indicata nei database, ma sarà di certo molto minore di quella raggiungibile nella presente esperienza).
 
 
 \section{Strumentazione e Campioni}
@@ -118,7 +118,7 @@ I valori sono assunti senza errore.
 \item \underline{Campioni assorbitori}: $7$ placchette di Pb, $4$ placchette di Al. Hanno area rettangolare (lato di qualche cm ) e posso essere posizionate nell'apposito portacampioni fra sorgente e rivelatore.
 Possono essere messi in successione a formare differenti spessori totali, ovvero la variabile $x$ di Eq.(\ref{ass}).
 Gli spessori $x$ delle singole placchette sono riportati in Tab.(\ref{spess}).
-\item \underline{rivelatore}: Rivelatore a scintillazione $NaI(Tl)$ e tubo $PMT$ (per dettagli vedi \textit{Esperienza Taratura MCA}). Considerando il principio di funzionamento di un rivelatore di questo tipo, si osserverà in questa esperienza una variazione del profilo energetico al variare dello spessore $x$. In particolare si alzerà la "valle" fra spalla Compton e fotopicco a causa appunto dell'aumento di probabilità del primo effetto.
+\item \underline{rivelatore}: Rivelatore a scintillazione $NaI(Tl)$ e tubo $PMT$ (per dettagli su questi dispositivi vedi \textit{Esperienza Taratura MCA}). Considerando il principio di funzionamento di un rivelatore di questo tipo, si osserverà in questa esperienza una variazione del profilo energetico al variare dello spessore $x$. In particolare si alzerà la "valle" fra spalla Compton e fotopicco a causa appunto dell'aumento di probabilità del primo effetto.
 
 \item \underline{MCA}: per la descrizione generale di un MCA ci si riferisce a \textit{Esperienza Taratura MCA}, in questo caso, il MultiChannel Analyzer è montato su un modulo del rack; non può trasferire i dati su memoria esterna per successivo processamento quindi gli spettri acquisiti sono analizzati solo nel tempo di svolgimento dell'esperienza. Per far ciò si può far scorrere lungo i canali un cursore verticale che fornisce il corrispondente valori conteggio. Analogamente fornisce i conteggi "di area" presenti nell'intervallo di canali fra due cursori.
 
@@ -127,7 +127,7 @@ Può contenere nella sua memoria interna 8192 canali quindi una misura con risol
 Quando si imposta il tempo di acquisizione è anche possibile definire se vada considerato come \textit{tempo reale} oppure come \textit{tempo vivo} ( cioè tempo che non considera gli intervalli di \textit{tempo morto}, e.g. il tempo di conversione dell'ADC e il tempo di scrittura in memoria).
 Accetta segnali fino a $8V$.
 
-\item \underline{Alimentatore:} modulo NHQ-203M fornisce che l'alta tensione al PMT.
+\item \underline{Alimentatore:} modulo NHQ-203M fornisce l'alta tensione al PMT.
 \item \underline{Amplificatore}: modulo amplificatore ORTEC con $Z=90 \Omega $ (per dettagli vedi \textit{Esperienza Taratura MCA}).
 \item \underline{Oscilloscopio:} Oscilloscopio analogico Tektronix $BP 100 MHz$ utilizzato per il controllo del segnale in uscita dal MCA.
 \end{enumerate}
@@ -161,7 +161,7 @@ Si imposta l'MCA in modo che divida la memoria in 16 slots da \textbf{512 }canal
 \pagebreak
 \subsection{Acquisizione conteggi}
 
-Si acquisiscono gli spettri energetici variando lo spessore di materiale attraversato. Si misurano i conteggi di picco, posizionando un cursore sul picco e i conteggi di area posizionando due cursori nei punti di FWMH.
+Si acquisiscono gli spettri energetici variando lo spessore di materiale attraversato. Si misurano i conteggi di picco, posizionando un cursore sul fotopicco e i conteggi di area posizionando due cursori nei punti di FWMH del fotopicco.
 Le misure sono riassunte in Tab.(\ref{count}).
 
 
@@ -212,7 +212,7 @@ Il calcolo dei Fit esponenziali è riportato in Fig.(\ref{fit}).
    \label{fit}
  \end{figure}
 
-I calcoli di Fit mostrano comportamenti analoghi per Pb e Al: con i conteggi di picco il valore di $\chi ^2$ fa concludere che l'ipotesi di andamento esponenziale non ha motivo di essere rigettata con un livello di significatività del $5 \%$.
+I calcoli di Fit mostrano comportamenti analoghi per Pb e Al: \underline{con i conteggi di picco} il valore di $\chi ^2$ fa concludere che l'ipotesi di andamento esponenziale non ha motivo di essere rigettata con un livello di significatività del $5 \%$.
 I valori ottenuti e lo Z-test con il valore atteso sono:
 
 \begin{gather}
@@ -226,7 +226,7 @@ A rigore il test-Z (effettuato con errore nullo sul vaore atteso) ci dice che i 
 E' importante osservare che anche aumentando ulteriormente l'errore sull'ascissa $x$ il risultato per $\mu$ non cambia significativamente.
 Analogamente anche si assume l'errore a posteriori $\sigma_{post}= \sqrt{\chi_{rid}} \cdot \sigma$ non si ottiene un risultato migliore.
 
-Nei Fit che usano i conteggi di area i risultati per $\mu$ variano di poco e in questo caso l'ipotesi di andamento esponenziale va sicuramente rigettata (valore di $\chi ^2$ alto a causa dell'errore molto piccolo $ \sigma_{ poisson} ^{rel} \approx \frac{1}{\sqrt{n}}$).
+Per quanto riguarda i Fit \underline{con i conteggi di area} , i risultati per $\mu$ variano di poco e in questo caso l'ipotesi di andamento esponenziale va sicuramente rigettata (valore di $\chi ^2$ alto a causa dell'errore molto piccolo $ \sigma_{ poisson} ^{rel} \approx \frac{1}{\sqrt{n}}$).
 
 
 \end{document}
