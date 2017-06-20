@@ -221,7 +221,7 @@ Con $R=50 \Omega$, $C=20 pF$ ci si aspetta un segnale dell'ordine del $(10^{-10}
 
 \item \underline{Contatore:} nel medesimo crate dell'amplificatore si trova il contatore ORTEC SCALER-484, il quale conta gli impulsi in ingresso che superano una determinata \textit{threshold} settata da manopola, nella finestra temporale impostata. Il valore di conteggio sarà ovviamente proporzionale all'attività della sorgente.
 
-\item \underline{MCA:} il Multi Channel Analizer (modello Pocket MCA della Amptek) è l'elettronica fondamentale per produrre un grafico di \textit{conteggi vs energia}. Esso è un ADC che divide un range di tensione $V$ in $(2^n)$ canali di ampiezza $\frac{V}{2^n}$ (con valori discreti da $0$ a $\left( V-\frac{V}{2^n} \right)$), con $n$ scelto dall'operatore.  Il modulo che accetta in ingresso il cavo BNC del segnale (amplificato) con tensione massima di $10V$ e in uscita è collegato al PC con software di controllo a cui trasmette il valore binario ottenuto.
+\item \underline{MCA:} il Multi Channel Analyzer (modello Pocket MCA della Amptek) è l'elettronica fondamentale per produrre un grafico di \textit{conteggi vs energia}. Esso è un ADC che divide un range di tensione $V$ in $(2^n)$ canali di ampiezza $\frac{V}{2^n}$ (con valori discreti da $0$ a $\left( V-\frac{V}{2^n} \right)$), con $n$ scelto dall'operatore.  Il modulo che accetta in ingresso il cavo BNC del segnale (amplificato) con tensione massima di $10V$ e in uscita è collegato al PC con software di controllo a cui trasmette il valore binario ottenuto (questa è anche detta modalità PHA, Pulse Height Analyzer). 
 
 \item \underline{Computer:} il modulo MCA in uscita presenta il cavo VGA con il quale "dice" al PC in quale canale "cade" 
  il segnale appena rilevato. Il software di controllo della Amptek installato incrementa i contatori dei singoli canali e quindi permette di visualizzare on-line la costruzione online del grafico \textit{conteggi vs energia}.
@@ -307,15 +307,16 @@ Per calibrare l'MCA si deve far corrispondere ad ogni valore di energia del foto
 Si ottiene la retta di taratura:
 
 \begin{gather} \label{eqtar}
-\boxed{ \mathbf{E} [MeV]=\mathbf{-0.022} (\pm 0.013) [MeV]+\mathbf{0.00297} (\pm 0.00004) \left[\frac{MeV}{ch}\right] \cdot \mathbf{ch}} \\
-\mathbf{@} \; HV = 1003V\; , \; Gain=\ce{^{60}_{}Co} \leftrightarrow 9V \\ \label{eqtar2}
+\boxed{ \mathbf{E} [MeV]=\mathbf{-0.022} (\pm 0.013) [MeV]+\mathbf{0.00297} (\pm 0.00004) \left[\frac{MeV}{ch}\right] \cdot \mathbf{ch}} \\ \label{eqtarpar}
+\mathbf{@} \; HV = 1003V\; , \; Gain=\ce{^{60}_{}Co} \leftrightarrow 9V , \; T=290 °K\\ \label{eqtar2}
 \sigma_E (ch)= \sqrt{\sigma_a^2 + (ch \cdot \sigma_b )^2 + (b\cdot \sigma_{ch})^2 + 2 \cdot b \cdot ch \cdot C_{a,b}} \approx \sqrt{\sigma_a^2 + (ch \cdot \sigma_b )^2 + (b\cdot \sigma_{ch})^2} \\\label{eqtar3}
 \text{per un fotopicco} \rightarrow  \sigma_{ch} = 1 \rightarrow \sigma_E \approx 20keV \rightarrow  \frac{\sigma_E}{E} \approx 2 \div 4 \%
 \end{gather}
 
-Nella Eq.(\ref{eqtar}) l'intercetta negativa è dovuta al \textit{piedistallo} dell'ADC.
+Nella Eq.(\ref{eqtar}) l'intercetta negativa è dovuta al \textit{piedistallo} dell'ADC. \newline
+I parametri operativi riportati in Eq.(\ref{eqtarpar}) influenzano la retta di taratura. In generale un sistema di spettroscopia andrebbe studiato con sistemi di feedback che rendano la retta di taratura indipendente da questi paramentri (in range di variazione ragionevoli). \newline
 Nella Eq.(\ref{eqtar2}) la covarianza ottenuta ha ordine di grandezza $10^{-7}$ e quindi può essere trascurata.
-Il software di acquisizione fornisce valori dei picchi con incertezza sempre $<1ch$, questo motiva l'approssimazione della Eq.(\ref{eqtar3}): l'incertezza sull'energia è variabile con il valore del canale e l' Eq.(\ref{eqtar3}) vuole solo sottolineare qual è l'ordine di grandezza dell'errore della strumentazione nella determinazione del singolo picco. Questo non include un eventuale errore sistematico.
+Il software di acquisizione fornisce valori dei picchi con incertezza sempre $<1ch$, questo motiva l'approssimazione della Eq.(\ref{eqtar3}): l'incertezza sull'energia è variabile con il valore del canale e l' Eq.(\ref{eqtar3}) vuole solo sottolineare qual è l'ordine di grandezza dell'errore della strumentazione nella determinazione del singolo picco. 
 
 Si può testare la bontà della retta di calibrazione, confrontando il valore che si ottiene ad esempio per una spalla Compton (cfr. metodo Par.(\ref{rel})) e confrontarlo con il valore di riferimento di Tab (\ref{nuclidi}). Per il $\ce{^{137}_{}Cs}$ si ha un valore di $ch=155 \pm 6$. Applicando Eq.(\ref{eqtar}) ed Eq.(\ref{eqtar2} si ottiene $E=0.48 \pm 0.02 MeV$ compatibile con quello atteso $E=477 MeV$.
 
@@ -396,7 +397,7 @@ I risultati sono riassunti in Tab.(\ref{masstab}).
 Con i valori di Tab.(\ref{masstab}) si ottiene il Fit riportato in Fig.(\ref{massfit}). Il risultato ottenuto è:
 
 \begin{equation}
-\boxed{m_e c^2 = (0.52 \pm 0.12) + (0.51 \pm 0.17) \cdot T_e  \quad [MeV] }
+\boxed{\mathbf{m_e c^2 }= (0.52 \pm 0.12) + (0.51 \pm 0.17) \cdot \mathbf{T_e}  \quad [MeV] }
 \end{equation}
 
 I valori ottenuti sono compatibili con quelli attesi. Tuttavia, la misura della massa a riposo dell'elettrone ha un errore del $20 \%$ che è piuttosto alto. Questo è dovuto all'indeterminazione sul canale della Spalla Compton che si propaga nel calcolo di $T_e$ e ancora si propaga nel calcolo di $m_e c^2$.
@@ -420,17 +421,13 @@ I valori ottenuti sono compatibili con quelli attesi. Tuttavia, la misura della 
  \subfigure[Cobalto-60]
    {\includegraphics[scale=0.93]{immagini/Co60.pdf}}
   \subfigure[Bario-133]
-   {\includegraphics[scale=0.92]{immagini/Ba133.pdf}}
+   {\includegraphics[scale=0.93]{immagini/Ba133.pdf}}
   \subfigure[Sodio-22]
-   {\includegraphics[scale=0.92]{immagini/Na22.pdf}}
+   {\includegraphics[scale=0.93]{immagini/Na22.pdf}}
  \end{figure}
  
-Il software di acquisizione fornisce la lista di coppie $conteggi-canale$. I grafici qui riportati sono generati con \textit{Mathematica} usando la funzione \textit{Joined Point} per motivi estetici.
+Il software di acquisizione fornisce la lista di coppie $conteggi-canale$. I grafici qui riportati sono generati con \textit{Mathematica} usando la funzione \textit{Joined Point} per motivi estetici.Non è stato sottratto il rumore poichè si è supposto non influenzare la determinazione della posizione dei fotopicchi.
 
-I grafici hanno asse delle ordinate scalato con il valore massimo di fotopicco, dato che hanno attività molto diverse fra loro. I valori di conteggi e relativi rate non sono necessari ai fini della presente esperienza. Allo stesso modo non sono stati presi valori con $ch<48$ in quanto questi corrispondono a valori circa $ < 100 keV$, zona in cui ogni segnale è "sommerso" nel picco dovuto dai fotoni $K_{\alpha} \approx 75 keV$ di fluoerescenza dello schermo di Piombo, dovuto all'effetto fotoelettrico compiuto dai raggi-$\gamma$.
-
-Non è stato sottratto il rumore.
-
-Ad ogni picco fotoelettrico corrisponde una spalla Compton eccetto quando essa si trova sommmersa sotto altro segnale come nel Cobalto-60 e nel Bario-133.
-Negli spettri di Cobalto-60 e Cesio-137 è particolarmente distinto alle basse energie il picco di back-scattering dovuto al raggio-$\gamma$ che viene riflesso di $180°$ per scattering Compton con la schermatura di Piombo. Il valore del fotone di back-scattering si ricava dalla Eq.(\ref{back}).
+I grafici hanno asse delle ordinate scalato con il valore massimo di fotopicco, dato che hanno attività molto diverse fra loro. I valori di conteggi e relativi rate non sono necessari ai fini della presente esperienza. Allo stesso modo non sono stati presi valori con $ch<48$ in quanto questi corrispondono a valori circa $ < 100 keV$, zona in cui ogni segnale è "sommerso" nel picco dovuto dai fotoni $K_{\alpha} \approx 75 keV$ di fluoerescenza dello schermo di Piombo, dovuto all'effetto fotoelettrico compiuto dai raggi-$\gamma$. Ad ogni picco fotoelettrico corrisponde una spalla Compton eccetto quando essa si trova sommmersa sotto altro segnale come nel Cobalto-60 e nel Bario-133.
+Infine, negli spettri di Cobalto-60 e Cesio-137 è particolarmente distinto alle basse energie il picco di back-scattering dovuto al raggio-$\gamma$ che viene riflesso di $180°$ per scattering Compton con la schermatura di Piombo. Il valore del fotone di back-scattering si ricava dalla Eq.(\ref{back}).
 \end{document}
