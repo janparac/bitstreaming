@@ -1,13 +1,12 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.math_real.all;--undelined as error but it works
 use ieee.std_logic_unsigned.all; -- for + sign
 use ieee.numeric_std.all;--for type conversion
 
 
 
 
-entity Sine_Gen is
+entity Triangle_Gen is
 
  generic ( g_resol :  integer := 100 --must be equal to g_max of the PWM_gen because this is the number of different value of the ROM
             );
@@ -17,9 +16,9 @@ entity Sine_Gen is
            i_res : in STD_LOGIC;     
            o_sig : out STD_LOGIC);
 
-end Sine_Gen;
+end Triangle_Gen;
 
-architecture Behavioral of Sine_Gen is
+architecture Behavioral of Triangle_Gen is
 
 component PWM_gen is
 
@@ -36,7 +35,6 @@ generic(
 
 
 end component;
-
 
 
 
@@ -87,21 +85,8 @@ end process;
 
 
 
-genrom : for i in g_resol downto 0 generate
-
---constant x : std_logic_vector(15 downto 0) :=std_logic_vector(to_unsigned(i,16));
-constant x: real := cos(real(i)*MATH_PI / (real(g_resol) ) );
-
-constant xn: std_logic_vector (15 downto 0):= std_logic_vector(to_unsigned(integer(x*real(g_resol/2)+real(g_resol/2)),16));
-begin
-s_myrom(i)<= xn;
-end generate genrom;
-
-s_fun<=s_myrom(to_integer(signed(s_pilot)));
-
-o_sig0 : PWM_gen GENERIC MAP (g_max=>g_resol, g_dutybit=>16) PORT MAP (i_clk=>i_clk,i_duty=>s_fun,o_pulse=>o_sig);
+o_sig1 : PWM_gen GENERIC MAP (g_max=>g_resol, g_dutybit=>16) PORT MAP (i_clk=>i_clk,i_duty=>s_pilot,o_pulse=>o_sig);
 
 
 
 end Behavioral;
-
